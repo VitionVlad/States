@@ -369,16 +369,16 @@ function main(){
         eng.shadowpos.x = eng.pos.x - 45.0;
 
         if(sp === true){
-            for(var i = 0; i != 2; i+=1){
-                if(states[i].lqwork === states[i].hqwork && states[i].hqwork === states[i].population/2 && states[i].lqwork === states[i].population/2){
-                    states[i].budget += 10 * states[i].hqwork;
-                }else{
-                    if(states[i].population !== 0 && (states[i].lqwork !== 0 || states[i].hqwork !== 0)){
-                        states[i].budget += 1;
+            if(gbeg === true && waitfb >= eng.fps){
+                for(var i = 0; i != 2; i+=1){
+                    if(states[i].lqwork === states[i].hqwork && states[i].hqwork === states[i].population/2 && states[i].lqwork === states[i].population/2){
+                        states[i].budget += 10 * states[i].hqwork;
+                    }else{
+                        if(states[i].population !== 0 && (states[i].lqwork !== 0 || states[i].hqwork !== 0)){
+                            states[i].budget += 1;
+                        }
                     }
                 }
-            }
-            if(gbeg === true && waitfb >= eng.fps){
                 if(pa[bott].claim === 1){
                     states[0].territories -= 1;
                     switch(pa[bott].func){
@@ -421,18 +421,20 @@ function main(){
                 if(bott >= cur){
                     bott = 0;
                 }
-            }else{
-                waitfb += 1;
             }
         }else{
-            if(states[myclnm-1].lqwork === states[myclnm-1].hqwork && states[myclnm-1].hqwork === states[myclnm-1].population/2 && states[myclnm-1].lqwork === states[myclnm-1].population/2){
-                states[myclnm-1].budget += 10 * states[myclnm-1].hqwork;
-            }else{
-                if(states[myclnm-1].population !== 0 && (states[myclnm-1].lqwork !== 0 || states[myclnm-1].hqwork !== 0)){
-                    states[myclnm-1].budget += 1;
+            if(waitfb >= eng.fps){
+                if(states[myclnm-1].lqwork === states[myclnm-1].hqwork && states[myclnm-1].hqwork === states[myclnm-1].population/2 && states[myclnm-1].lqwork === states[myclnm-1].population/2){
+                    states[myclnm-1].budget += 10 * states[myclnm-1].hqwork;
+                }else{
+                    if(states[myclnm-1].population !== 0 && (states[myclnm-1].lqwork !== 0 || states[myclnm-1].hqwork !== 0)){
+                        states[myclnm-1].budget += 1;
+                    }
                 }
+                waitfb = 0;
             }
         }
+        waitfb += 1;
 
         eng.beginShadowPass();
 

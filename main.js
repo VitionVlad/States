@@ -35,6 +35,8 @@ class state{
     }
 }
 
+var eng = new Engine("#render", standartPostProces, 0.15, 4000);
+
 var myclnm = 1;
 
 var clclnm = 1;
@@ -108,6 +110,24 @@ function conmp(){
             const revd = event.data.split('=');
             if(revd[0] === "id"){
                 myclnm = Number(revd[1]);
+                switch(revd[1]){
+                    case "1":
+                        eng.pos.z = 40.0;
+                        eng.pos.x = 40.0;
+                        break;
+                    case "2":
+                        eng.pos.z = 40.0;
+                        eng.pos.x = -40.0;
+                        break;
+                    case "3":
+                        eng.pos.z = -40.0;
+                        eng.pos.x = 40.0;
+                        break;
+                    case "4":
+                        eng.pos.z = -40.0;
+                        eng.pos.x = -40.0;
+                        break;
+                }
                 websocket.send('ct='+myclnm+'='+lastmod.lid+'='+lastmod.type);
             }else if(revd[0] === "ct"){
                 if(Number(revd[1]) !== -1 && myclnm !== 1){
@@ -239,7 +259,6 @@ function main(){
         document.getElementById("cid").style.display = "none";
     }
     const speed = 0.2;
-    var eng = new Engine("#render", standartPostProces, 0.15, 4000);
     eng.useorthosh = true;
     eng.sfar = 200.0;
     eng.sfov = 30.0;
@@ -474,7 +493,20 @@ function main(){
                         b.collision = false;
                         b.Draw(eng);
                     }else{
-                        eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 0.1, 0.1), 1);
+                        switch(pa[i].claim){
+                            case 1:
+                                eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 0.1, 0.1), 1);
+                                break;
+                            case 2:
+                                eng.setLight(0, new vec3(0, 1, 1), new vec3(0.1, 1, 0.1), 1);
+                                break;
+                            case 3:
+                                eng.setLight(0, new vec3(0, 1, 1), new vec3(0.1, 0.1, 1), 1);
+                                break;
+                            case 4:
+                                eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 1, 0.1), 1);
+                                break;
+                        }
                         if(states[myclnm-1].enablede){
                             b.collision = false;
                             b.Draw(eng);
@@ -502,7 +534,20 @@ function main(){
                         d.collision = false;
                         d.Draw(eng);
                     }else{
-                        eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 0.1, 0.1), 1);
+                        switch(pa[i].claim){
+                            case 1:
+                                eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 0.1, 0.1), 1);
+                                break;
+                            case 2:
+                                eng.setLight(0, new vec3(0, 1, 1), new vec3(0.1, 1, 0.1), 1);
+                                break;
+                            case 3:
+                                eng.setLight(0, new vec3(0, 1, 1), new vec3(0.1, 0.1, 1), 1);
+                                break;
+                            case 4:
+                                eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 1, 0.1), 1);
+                                break;
+                        }
                         if(states[myclnm-1].enablede){
                             d.collision = false;
                             d.Draw(eng);
@@ -529,7 +574,20 @@ function main(){
                         e.collision = false;
                         e.Draw(eng);
                     }else{
-                        eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 0.1, 0.1), 1);
+                        switch(pa[i].claim){
+                            case 1:
+                                eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 0.1, 0.1), 1);
+                                break;
+                            case 2:
+                                eng.setLight(0, new vec3(0, 1, 1), new vec3(0.1, 1, 0.1), 1);
+                                break;
+                            case 3:
+                                eng.setLight(0, new vec3(0, 1, 1), new vec3(0.1, 0.1, 1), 1);
+                                break;
+                            case 4:
+                                eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 1, 0.1), 1);
+                                break;
+                        }
                         if(states[myclnm-1].enablede){
                             e.collision = false;
                             e.Draw(eng);
@@ -556,7 +614,20 @@ function main(){
                         f.collision = false;
                         f.Draw(eng);
                     }else{
-                        eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 0.1, 0.1), 1);
+                        switch(pa[i].claim){
+                            case 1:
+                                eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 0.1, 0.1), 1);
+                                break;
+                            case 2:
+                                eng.setLight(0, new vec3(0, 1, 1), new vec3(0.1, 1, 0.1), 1);
+                                break;
+                            case 3:
+                                eng.setLight(0, new vec3(0, 1, 1), new vec3(0.1, 0.1, 1), 1);
+                                break;
+                            case 4:
+                                eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 1, 0.1), 1);
+                                break;
+                        }
                         if(states[myclnm-1].enablede){
                             f.collision = false;
                             f.Draw(eng);
@@ -621,7 +692,20 @@ function main(){
                             lastmod.lid = i;
                         }
                     }else{
-                        eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 0.6, 0.6), 1);
+                        switch(pa[i].claim){
+                            case 1:
+                                eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 0.1, 0.1), 1);
+                                break;
+                            case 2:
+                                eng.setLight(0, new vec3(0, 1, 1), new vec3(0.1, 1, 0.1), 1);
+                                break;
+                            case 3:
+                                eng.setLight(0, new vec3(0, 1, 1), new vec3(0.1, 0.1, 1), 1);
+                                break;
+                            case 4:
+                                eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 1, 0.1), 1);
+                                break;
+                        }
                         if(states[myclnm-1].enablede){
                             g.collision = false;
                             if(g.interacting && tlc && states[myclnm-1].budget >= 50){
@@ -646,7 +730,20 @@ function main(){
                         p.collision = false;
                         p.Draw(eng);
                     }else{
-                        eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 0.1, 0.1), 1);
+                        switch(pa[i].claim){
+                            case 1:
+                                eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 0.1, 0.1), 1);
+                                break;
+                            case 2:
+                                eng.setLight(0, new vec3(0, 1, 1), new vec3(0.1, 1, 0.1), 1);
+                                break;
+                            case 3:
+                                eng.setLight(0, new vec3(0, 1, 1), new vec3(0.1, 0.1, 1), 1);
+                                break;
+                            case 4:
+                                eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 1, 0.1), 1);
+                                break;
+                        }
                         if(states[myclnm-1].enablede){
                             p.collision = false;
                             p.Draw(eng);
@@ -673,7 +770,20 @@ function main(){
                         sm.collision = false;
                         sm.Draw(eng);
                     }else{
-                        eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 0.1, 0.1), 1);
+                        switch(pa[i].claim){
+                            case 1:
+                                eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 0.1, 0.1), 1);
+                                break;
+                            case 2:
+                                eng.setLight(0, new vec3(0, 1, 1), new vec3(0.1, 1, 0.1), 1);
+                                break;
+                            case 3:
+                                eng.setLight(0, new vec3(0, 1, 1), new vec3(0.1, 0.1, 1), 1);
+                                break;
+                            case 4:
+                                eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 1, 0.1), 1);
+                                break;
+                        }
                         if(states[myclnm-1].enablede){
                             sm.collision = false;
                             sm.Draw(eng);
@@ -701,7 +811,20 @@ function main(){
                         r.collision = false;
                         r.Draw(eng);
                     }else{
-                        eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 0.1, 0.1), 1);
+                        switch(pa[i].claim){
+                            case 1:
+                                eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 0.1, 0.1), 1);
+                                break;
+                            case 2:
+                                eng.setLight(0, new vec3(0, 1, 1), new vec3(0.1, 1, 0.1), 1);
+                                break;
+                            case 3:
+                                eng.setLight(0, new vec3(0, 1, 1), new vec3(0.1, 0.1, 1), 1);
+                                break;
+                            case 4:
+                                eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 1, 0.1), 1);
+                                break;
+                        }
                         if(states[myclnm-1].enablede){
                             r.collision = false;
                             r.Draw(eng);
@@ -730,17 +853,17 @@ function main(){
         eng.setLight(0, new vec3(0, 1, 1), new vec3(0.1, 0.1, 0.1), 1);
 
         tlc = false;
-        if(eng.pos.z < -50){
-            eng.pos.z = -50;
+        if(eng.pos.z < -45){
+            eng.pos.z = -45;
         }
-        if(eng.pos.x < -50){
-            eng.pos.x = -50;
+        if(eng.pos.x < -45){
+            eng.pos.x = -45;
         }
-        if(eng.pos.z > 50){
-            eng.pos.z = 50;
+        if(eng.pos.z > 55){
+            eng.pos.z = 55;
         }
-        if(eng.pos.x > 50){
-            eng.pos.x = 50;
+        if(eng.pos.x > 55){
+            eng.pos.x = 55;
         }
 
         if(applych && states[clclnm-1].budget >= 10){

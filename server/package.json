@@ -1,0 +1,14 @@
+{
+  "name": "states_server",
+  "version": "1.0.0",
+  "description": "application to create a server for states",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "vition vlad",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "ws": "^8.13.0"
+  }
+}

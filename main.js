@@ -361,7 +361,8 @@ function main(){
     key_callback();
     drawFrame();
     function drawFrame(now){
-        eng.fov = Number(document.getElementById("zm").value);
+        eng.fov = 65 - Number(document.getElementById("zm").value);
+        document.getElementById("bd").style.color = "green";
         document.getElementById("bd").innerHTML = "Budget: " + states[myclnm-1].budget;
         pawn.pos.x = -eng.pos.x;
         pawn.pos.z = -eng.pos.z;

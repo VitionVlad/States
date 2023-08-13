@@ -61,9 +61,22 @@ var peer;
 
 var conn;
 
+var hm = 1;
+
 function begsp(){
     myclnm = 1;
     sp = true;
+    switch(4-document.getElementById("hm").value){
+        case 1:
+            hm = 1;
+            break;
+        case 2:
+            hm = 5;
+            break;
+        case 3:
+            hm = 10;
+            break;
+    }
 }
 
 var pusher;
@@ -81,6 +94,48 @@ var pa = new Array(100);
 
 var lastmod = new ltile();
 
+function twork(b, i){
+    b.pos = new vec3(pa[i].pos.x, 0, pa[i].pos.y);
+    if(pa[i].claim === myclnm){
+        eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 1, 1), 1);
+        b.collision = false;
+        b.Draw(eng);
+    }else{
+        switch(pa[i].claim){
+            case 1:
+                eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 0.1, 0.1), 1);
+                break;
+            case 2:
+                eng.setLight(0, new vec3(0, 1, 1), new vec3(0.1, 1, 0.1), 1);
+                break;
+            case 3:
+                eng.setLight(0, new vec3(0, 1, 1), new vec3(0.1, 0.1, 1), 1);
+                break;
+            case 4:
+                eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 1, 0.1), 1);
+                break;
+        }
+        if(states[myclnm-1].enablede){
+            b.collision = false;
+            b.Draw(eng);
+            if(b.interacting && tlc && states[myclnm-1].budget >= 50){
+                pa[i].claim = myclnm;
+                pa[i].func = "g";
+                states[myclnm-1].budget -= 50;
+                states[myclnm-1].territories += 1;
+                states[pa[i].claim-1].territories -= 1;
+                states[pa[i].claim-1].population -= 2;
+                lastmod.type = "g";
+                lastmod.lid = i;
+            }
+        }else{
+            b.collision = true;
+            b.Draw(eng);
+        }
+    }
+    b.collision = false;
+}
+
 function conmp(){
     var cid = document.getElementById("cid").value;
     if(cid.length === 0){
@@ -93,6 +148,7 @@ function conmp(){
             document.getElementById("ti").style.display = "none";
             document.getElementById("bp").style.display = "none";
             document.getElementById("pb").style.display = "none";
+            document.getElementById("hm").style.display = "none";
         };
         websocket.onerror = () => {
             alert("connection error");
@@ -270,16 +326,16 @@ function main(){
     eng.rot.y = eng.toRadians(90);
     function key_callback(){
         document.addEventListener('keydown', function(event) {
-            if (event.key == "w" || event.key == "W") {
+            if (event.key == "w" || event.key == "W" || event.key == "ArrowUp") {
                 eng.pos.z += speed;
             }
-            if (event.key == "a" || event.key == "A") {
+            if (event.key == "a" || event.key == "A" || event.key == "ArrowLeft") {
                 eng.pos.x += speed;
             }
-            if (event.key == "s" || event.key == "S") {
+            if (event.key == "s" || event.key == "S" || event.key == "ArrowDown") {
                 eng.pos.z -= speed;
             }
-            if (event.key == "d" || event.key == "D") {
+            if (event.key == "d" || event.key == "D" || event.key == "ArrowRight") {
                 eng.pos.x -= speed;
             }
         }, true);
@@ -358,6 +414,8 @@ function main(){
 
     var touchpos;
 
+    var wtfb = 0;
+
     key_callback();
     drawFrame();
     function drawFrame(now){
@@ -370,16 +428,18 @@ function main(){
         eng.shadowpos.x = eng.pos.x - 45.0;
 
         if(sp === true){
-            if(gbeg === true && waitfb >= eng.fps){
-                for(var i = 0; i != 2; i+=1){
-                    if(states[i].lqwork === states[i].hqwork && states[i].hqwork === states[i].population/2 && states[i].lqwork === states[i].population/2){
-                        states[i].budget += 10 * states[i].hqwork;
-                    }else{
-                        if(states[i].population !== 0 && (states[i].lqwork !== 0 || states[i].hqwork !== 0)){
-                            states[i].budget += 1;
-                        }
+            if(gbeg === true && wtfb >= eng.fps){
+                if(states[myclnm-1].lqwork === states[myclnm-1].hqwork && states[myclnm-1].hqwork === states[myclnm-1].population/2 && states[myclnm-1].lqwork === states[myclnm-1].population/2){
+                    states[myclnm-1].budget += 10 * states[myclnm-1].hqwork;
+                }else{
+                    if(states[myclnm-1].population !== 0 && (states[myclnm-1].lqwork !== 0 || states[myclnm-1].hqwork !== 0)){
+                        states[myclnm-1].budget += 1;
                     }
                 }
+                wtfb = 0;
+            }
+            wtfb += 1;
+            if(gbeg === true && waitfb >= eng.fps*hm){
                 if(pa[bott].claim === 1){
                     states[0].territories -= 1;
                     switch(pa[bott].func){
@@ -432,7 +492,6 @@ function main(){
                         states[myclnm-1].budget += 1;
                     }
                 }
-                waitfb = 0;
             }
         }
         waitfb += 1;
@@ -490,166 +549,16 @@ function main(){
         for(var i = 0; i != 100; i += 1){
             switch(pa[i].func){
                 case "b":
-                    b.pos = new vec3(pa[i].pos.x, 0, pa[i].pos.y);
-                    if(pa[i].claim === myclnm){
-                        eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 1, 1), 1);
-                        b.collision = false;
-                        b.Draw(eng);
-                    }else{
-                        switch(pa[i].claim){
-                            case 1:
-                                eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 0.1, 0.1), 1);
-                                break;
-                            case 2:
-                                eng.setLight(0, new vec3(0, 1, 1), new vec3(0.1, 1, 0.1), 1);
-                                break;
-                            case 3:
-                                eng.setLight(0, new vec3(0, 1, 1), new vec3(0.1, 0.1, 1), 1);
-                                break;
-                            case 4:
-                                eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 1, 0.1), 1);
-                                break;
-                        }
-                        if(states[myclnm-1].enablede){
-                            b.collision = false;
-                            b.Draw(eng);
-                            if(b.interacting && tlc && states[myclnm-1].budget >= 50){
-                                pa[i].claim = myclnm;
-                                pa[i].func = "g";
-                                states[myclnm-1].budget -= 50;
-                                states[myclnm-1].territories += 1;
-                                states[pa[i].claim-1].territories -= 1;
-                                states[pa[i].claim-1].population -= 2;
-                                lastmod.type = "g";
-                                lastmod.lid = i;
-                            }
-                        }else{
-                            b.collision = true;
-                            b.Draw(eng);
-                        }
-                    }
-                    b.collision = false;
+                    twork(b, i);
                     break;
                 case "d":
-                    d.pos = new vec3(pa[i].pos.x, 0, pa[i].pos.y);
-                    if(pa[i].claim === myclnm){
-                        eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 1, 1), 1);
-                        d.collision = false;
-                        d.Draw(eng);
-                    }else{
-                        switch(pa[i].claim){
-                            case 1:
-                                eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 0.1, 0.1), 1);
-                                break;
-                            case 2:
-                                eng.setLight(0, new vec3(0, 1, 1), new vec3(0.1, 1, 0.1), 1);
-                                break;
-                            case 3:
-                                eng.setLight(0, new vec3(0, 1, 1), new vec3(0.1, 0.1, 1), 1);
-                                break;
-                            case 4:
-                                eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 1, 0.1), 1);
-                                break;
-                        }
-                        if(states[myclnm-1].enablede){
-                            d.collision = false;
-                            d.Draw(eng);
-                            if(d.interacting && tlc && states[myclnm-1].budget >= 50){
-                                pa[i].claim = myclnm;
-                                pa[i].func = "g";
-                                states[myclnm-1].budget -= 50;
-                                states[myclnm-1].territories += 1;
-                                states[pa[i].claim-1].territories -= 1;
-                                lastmod.type = "g";
-                                lastmod.lid = i;
-                            }
-                        }else{
-                            d.collision = true;
-                            d.Draw(eng);
-                        }
-                    }
-                    d.collision = false;
+                    twork(d, i);
                     break;
                 case "e":
-                    e.pos = new vec3(pa[i].pos.x, 0, pa[i].pos.y);
-                    if(pa[i].claim === myclnm){
-                        eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 1, 1), 1);
-                        e.collision = false;
-                        e.Draw(eng);
-                    }else{
-                        switch(pa[i].claim){
-                            case 1:
-                                eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 0.1, 0.1), 1);
-                                break;
-                            case 2:
-                                eng.setLight(0, new vec3(0, 1, 1), new vec3(0.1, 1, 0.1), 1);
-                                break;
-                            case 3:
-                                eng.setLight(0, new vec3(0, 1, 1), new vec3(0.1, 0.1, 1), 1);
-                                break;
-                            case 4:
-                                eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 1, 0.1), 1);
-                                break;
-                        }
-                        if(states[myclnm-1].enablede){
-                            e.collision = false;
-                            e.Draw(eng);
-                            if(e.interacting && tlc && states[myclnm-1].budget >= 50){
-                                pa[i].claim = myclnm;
-                                pa[i].func = "g";
-                                states[myclnm-1].budget -= 50;
-                                states[myclnm-1].territories += 1;
-                                states[pa[i].claim-1].territories -= 1;
-                                lastmod.type = "g";
-                                lastmod.lid = i;
-                            }
-                        }else{
-                            e.collision = true;
-                            e.Draw(eng);
-                        }
-                    }
-                    e.collision = false;
+                    twork(e, i);
                     break;
                 case "f":
-                    f.pos = new vec3(pa[i].pos.x, 0, pa[i].pos.y);
-                    if(pa[i].claim === myclnm){
-                        eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 1, 1), 1);
-                        f.collision = false;
-                        f.Draw(eng);
-                    }else{
-                        switch(pa[i].claim){
-                            case 1:
-                                eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 0.1, 0.1), 1);
-                                break;
-                            case 2:
-                                eng.setLight(0, new vec3(0, 1, 1), new vec3(0.1, 1, 0.1), 1);
-                                break;
-                            case 3:
-                                eng.setLight(0, new vec3(0, 1, 1), new vec3(0.1, 0.1, 1), 1);
-                                break;
-                            case 4:
-                                eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 1, 0.1), 1);
-                                break;
-                        }
-                        if(states[myclnm-1].enablede){
-                            f.collision = false;
-                            f.Draw(eng);
-                            if(f.interacting && tlc && states[myclnm-1].budget >= 50){
-                                pa[i].claim = myclnm;
-                                pa[i].func = "g";
-                                states[myclnm-1].budget -= 50;
-                                states[myclnm-1].territories += 1;
-                                states[pa[i].claim-1].territories -= 1;
-                                states[pa[i].claim-1].lqwork -= 1;
-                                lastmod.type = "g";
-                                lastmod.lid = i;
-                            }
-                        }else{
-                            f.collision = true;
-                            f.Draw(eng);
-                        }
-                    }
-                    f.collision = false;
+                    twork(f, i);
                     break;
                 case "g":
                     g.pos = new vec3(pa[i].pos.x, 0, pa[i].pos.y);
@@ -727,84 +636,10 @@ function main(){
                     g.collision = false;
                     break;
                 case "p":
-                    p.pos = new vec3(pa[i].pos.x, 0, pa[i].pos.y);
-                    if(pa[i].claim === myclnm){
-                        eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 1, 1), 1);
-                        p.collision = false;
-                        p.Draw(eng);
-                    }else{
-                        switch(pa[i].claim){
-                            case 1:
-                                eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 0.1, 0.1), 1);
-                                break;
-                            case 2:
-                                eng.setLight(0, new vec3(0, 1, 1), new vec3(0.1, 1, 0.1), 1);
-                                break;
-                            case 3:
-                                eng.setLight(0, new vec3(0, 1, 1), new vec3(0.1, 0.1, 1), 1);
-                                break;
-                            case 4:
-                                eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 1, 0.1), 1);
-                                break;
-                        }
-                        if(states[myclnm-1].enablede){
-                            p.collision = false;
-                            p.Draw(eng);
-                            if(p.interacting && tlc && states[myclnm-1].budget >= 50){
-                                pa[i].claim = myclnm;
-                                pa[i].func = "g";
-                                states[myclnm-1].budget -= 50;
-                                states[myclnm-1].territories += 1;
-                                states[pa[i].claim-1].territories -= 1;
-                                lastmod.type = "g";
-                                lastmod.lid = i;
-                            }
-                        }else{
-                            p.collision = true;
-                            p.Draw(eng);
-                        }
-                    }
-                    p.collision = false;
+                    twork(p, i);
                     break;
                 case "s":
-                    sm.pos = new vec3(pa[i].pos.x, 0, pa[i].pos.y);
-                    if(pa[i].claim === myclnm){
-                        eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 1, 1), 1);
-                        sm.collision = false;
-                        sm.Draw(eng);
-                    }else{
-                        switch(pa[i].claim){
-                            case 1:
-                                eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 0.1, 0.1), 1);
-                                break;
-                            case 2:
-                                eng.setLight(0, new vec3(0, 1, 1), new vec3(0.1, 1, 0.1), 1);
-                                break;
-                            case 3:
-                                eng.setLight(0, new vec3(0, 1, 1), new vec3(0.1, 0.1, 1), 1);
-                                break;
-                            case 4:
-                                eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 1, 0.1), 1);
-                                break;
-                        }
-                        if(states[myclnm-1].enablede){
-                            sm.collision = false;
-                            sm.Draw(eng);
-                            if(sm.interacting && tlc && states[myclnm-1].budget >= 50){
-                                pa[i].claim = myclnm;
-                                pa[i].func = "g";
-                                states[myclnm-1].budget -= 50;
-                                states[myclnm-1].territories += 1;
-                                states[pa[i].claim-1].territories -= 1;
-                                states[pa[i].claim-1].hqwork -= 1;
-                                lastmod.type = "g";
-                                lastmod.lid = i;
-                            }
-                        }else{
-                            sm.collision = true;
-                            sm.Draw(eng);
-                        }
-                    }
+                    twork(sm, i);
                     sm.collision = false;
                     break;
                 case "r":

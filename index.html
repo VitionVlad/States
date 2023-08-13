@@ -176,16 +176,16 @@
       left: 50%;
       top: 39.04%;
       height: 11.95%;
-      transform: translate(-50%, -50%);
       width: 60%;
+      transform: translate(-50%, -50%) translate3d(2px, 10px, 0px);
     }
     .gwd-button-1ci3 {
       position: absolute;
       left: 50%;
       top: 71%;
       height: 11.95%;
-      transform: translate(-50%, -50%);
       width: 60%;
+      transform: translate(-50%, -50%) translate3d(0px, 33px, 0px);
     }
     .gwd-input-10m5 {
       position: absolute;
@@ -193,8 +193,17 @@
       left: 50%;
       top: 55.02%;
       height: 12.94%;
-      transform: translate(-50%, -50%);
       width: 59.45%;
+      transform: translate(-50%, -50%) translate3d(0px, 33px, 0px);
+    }
+    .gwd-input-1wfq {
+      position: absolute;
+      transform-origin: 50% 50% 0px;
+      left: 49.77%;
+      top: 48.78%;
+      height: 3.65%;
+      width: 60%;
+      transform: translate(-50%, -50%) translate3d(0px, 4px, 0px);
     }
   </style>
   <script type="text/javascript" gwd-events="support" src="gwd-events-support.1.0.js"></script>
@@ -411,6 +420,10 @@
       // GWD Predefined Function
       gwd.actions.events.setInlineStyle('cid', 'display: none;');
     };
+    gwd.auto_PbClick5 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('hm', 'display: none;');
+    };
   </script>
   <script type="text/javascript" gwd-events="registration">
     // Support code for event handling in Google Web Designer
@@ -469,6 +482,7 @@
       gwd.actions.events.addHandler('pb', 'click', gwd.auto_PbClick2, false);
       gwd.actions.events.addHandler('pb', 'click', gwd.auto_PbClick3, false);
       gwd.actions.events.addHandler('pb', 'click', gwd.auto_PbClick4, false);
+      gwd.actions.events.addHandler('pb', 'click', gwd.auto_PbClick5, false);
     };
     gwd.actions.events.deregisterEventHandlers = function(event) {
       gwd.actions.events.removeHandler('cl', 'click', gwd.auto_ClClick, false);
@@ -524,6 +538,7 @@
       gwd.actions.events.removeHandler('pb', 'click', gwd.auto_PbClick2, false);
       gwd.actions.events.removeHandler('pb', 'click', gwd.auto_PbClick3, false);
       gwd.actions.events.removeHandler('pb', 'click', gwd.auto_PbClick4, false);
+      gwd.actions.events.removeHandler('pb', 'click', gwd.auto_PbClick5, false);
     };
     document.addEventListener("DOMContentLoaded", gwd.actions.events.registerEventHandlers);
     document.addEventListener("unload", gwd.actions.events.deregisterEventHandlers);
@@ -548,6 +563,7 @@
   <button class="gwd-button-1hew" style="font-size: 3vw;" id="pb" onclick="begsp()">Play with a bot</button>
   <button class="gwd-button-1ci3" style="font-size: 3vw;" id="con" onclick="conmp()">Connect to a sever</button>
   <input type="text" id="cid" class="gwd-input-10m5" style="font-size: 3vw;" placeholder="Enter server local/public ip">
+  <input type="range" id="hm" value="2" min="1" max="3" step="1" class="gwd-input-1wfq">
   <script>
     var nb = true;
   </script>

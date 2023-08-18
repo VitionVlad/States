@@ -134,7 +134,7 @@ function conmp(){
     if(cid.length === 0){
         alert("please enter ip of the server you want ot connect" );
     }else{
-        const websocket = new WebSocket('ws://'+cid);
+        const websocket = new WebSocket('wss://'+cid);
         websocket.onopen = () => {
             document.getElementById("con").style.display = "none";
             document.getElementById("cid").style.display = "none";

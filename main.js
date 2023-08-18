@@ -116,8 +116,6 @@ function twork(b, i){
                 pa[i].func = "g";
                 states[myclnm-1].budget -= 50;
                 states[myclnm-1].territories += 1;
-                states[pa[i].claim-1].territories -= 1;
-                states[pa[i].claim-1].population -= 2;
                 lastmod.type = "g";
                 lastmod.lid = i;
             }

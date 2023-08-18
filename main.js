@@ -37,10 +37,6 @@ class state{
 
 var eng = new Engine("#render", standartPostProces, 0.15, 4000);
 
-if(!eng.gl){
-    document.getElementById("we").style.display = "inital";
-}
-
 var myclnm = 1;
 
 var clclnm = 1;
@@ -310,6 +306,10 @@ function swmn(newf){
 function main(){
     if(nb === true){
         document.getElementById("ss").style.display = "initial";
+    }
+    const gl = document.getElementById('render').getContext('webgl2');
+    if (!gl) {
+      document.getElementById("we").style.display = "initial";
     }
     const speed = 0.2;
     eng.useorthosh = true;

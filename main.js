@@ -37,6 +37,10 @@ class state{
 
 var eng = new Engine("#render", standartPostProces, 0.15, 4000);
 
+if(!eng.gl){
+    document.getElementById("we").style.display = "inital";
+}
+
 var myclnm = 1;
 
 var clclnm = 1;
@@ -142,6 +146,7 @@ function conmp(){
             document.getElementById("bp").style.display = "none";
             document.getElementById("pb").style.display = "none";
             document.getElementById("hm").style.display = "none";
+            document.getElementById("ss").style.display = "none";
         };
         websocket.onerror = () => {
             alert("connection error");
@@ -303,9 +308,8 @@ function swmn(newf){
 }
 
 function main(){
-    if(nb === false){
-        document.getElementById("con").style.display = "none";
-        document.getElementById("cid").style.display = "none";
+    if(nb === true){
+        document.getElementById("ss").style.display = "initial";
     }
     const speed = 0.2;
     eng.useorthosh = true;

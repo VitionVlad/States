@@ -2,7 +2,6 @@ var locked = false;
 
 /*
 b - building
-c - cooperation (external work)
 d - defence
 e - ministry of education
 f - fabric
@@ -132,7 +131,12 @@ function conmp(){
     if(cid.length === 0){
         alert("please enter ip of the server you want ot connect" );
     }else{
-        const websocket = new WebSocket('ws://'+cid);
+        var websocket;
+        websocket = new WebSocket('wss://'+cid);
+        const sep = cid.split("");
+        if(cid === "localhost:9000" || (sep[0] === "1" && sep[1] === "9" && sep[2] === "2")){
+            websocket = new WebSocket('ws://'+cid);
+        }
         websocket.onopen = () => {
             document.getElementById("con").style.display = "none";
             document.getElementById("cid").style.display = "none";
@@ -179,7 +183,7 @@ function conmp(){
                 websocket.send('ct='+myclnm+'='+lastmod.lid+'='+lastmod.type);
             }else if(revd[0] === "ct"){
                 for(var i = 1; i != 101; i+=1){
-                    if(Number(revd[i]) !== pa[i-1].claim && pa[i-1].claim === myclnm){
+                    if(pa[i-1].claim === myclnm  && Number(revd[i]) !== myclnm && Number(revd[i]) !== 0){
                         switch(pa[i-1].func){
                             case "b":
                                 states[myclnm-1].population -= 2;
@@ -191,6 +195,7 @@ function conmp(){
                                 states[myclnm-1].hqwork -= 1;
                                 break;
                         }
+                        states[myclnm-1].territories -= 1;
                     }
                     pa[i-1].claim = Number(revd[i]);
                 }
@@ -247,13 +252,6 @@ function swmn(newf){
 }
 
 function main(){
-    if(nb === true){
-        document.getElementById("ss").style.display = "initial";
-    }
-    const gl = document.getElementById('render').getContext('webgl2');
-    if (!gl) {
-      document.getElementById("we").style.display = "initial";
-    }
     const speed = 0.2;
     eng.useorthosh = true;
     eng.sfar = 200.0;
@@ -550,18 +548,19 @@ function main(){
                         }
                         if(states[myclnm-1].enablede){
                             g.collision = false;
+                            g.Draw(eng);
                             if(g.interacting && tlc && states[myclnm-1].budget >= 50){
                                 pa[i].claim = myclnm;
+                                pa[i].func = "g";
                                 states[myclnm-1].budget -= 50;
                                 states[myclnm-1].territories += 1;
-                                states[pa[i].claim-1].territories -= 1;
                                 lastmod.type = "g";
                                 lastmod.lid = i;
                             }
                         }else{
                             g.collision = true;
+                            g.Draw(eng);
                         }
-                        g.Draw(eng);
                     }
                     g.collision = false;
                     break;
@@ -570,7 +569,6 @@ function main(){
                     break;
                 case "s":
                     twork(sm, i);
-                    sm.collision = false;
                     break;
                 case "r":
                     r.pos = new vec3(pa[i].pos.x, 0, pa[i].pos.y);
@@ -600,7 +598,6 @@ function main(){
                                 pa[i].claim = myclnm;
                                 states[myclnm-1].budget -= 50;
                                 states[myclnm-1].territories += 1;
-                                states[pa[i].claim-1].territories -= 1;
                                 lastmod.type = "r";
                                 lastmod.lid = i;
                             }

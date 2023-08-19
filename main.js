@@ -13,7 +13,7 @@ r - road
 
 const gl = document.createElement('canvas').getContext('webgl2');
 if (!gl) {
-  document.getElementById("we").style.display = "initial";
+    document.getElementById("we").style.display = "initial";
 }
 
 class platform{

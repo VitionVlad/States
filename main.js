@@ -132,7 +132,7 @@ function conmp(){
     if(cid.length === 0){
         alert("please enter ip of the server you want ot connect" );
     }else{
-        const websocket = new WebSocket('wss://'+cid);
+        const websocket = new WebSocket('ws://'+cid);
         websocket.onopen = () => {
             document.getElementById("con").style.display = "none";
             document.getElementById("cid").style.display = "none";
@@ -178,81 +178,26 @@ function conmp(){
                 }
                 websocket.send('ct='+myclnm+'='+lastmod.lid+'='+lastmod.type);
             }else if(revd[0] === "ct"){
-                if(Number(revd[1]) !== -1 && myclnm !== 1){
-                    if(pa[Number(revd[1])].claim === myclnm){
-                        states[myclnm-1].territories -= 1;
-                        switch(pa[Number(revd[1])].func){
+                for(var i = 1; i != 101; i+=1){
+                    if(Number(revd[i]) !== pa[i-1].claim && pa[i-1].claim === myclnm){
+                        switch(pa[i-1].func){
                             case "b":
                                 states[myclnm-1].population -= 2;
-                                break;
-                            case "s":
-                                states[myclnm-1].hqwork -= 1;
                                 break;
                             case "f":
                                 states[myclnm-1].lqwork -= 1;
                                 break;
-                        }
-                    }
-                    pa[Number(revd[1])].claim = 1;
-                    pa[Number(revd[1])].func = revd[2];
-                }
-
-                if(Number(revd[3]) !== -1 && myclnm !== 2){
-                    if(pa[Number(revd[3])].claim === myclnm){
-                        states[myclnm-1].territories -= 1;
-                        switch(pa[Number(revd[3])].func){
-                            case "b":
-                                states[myclnm-1].population -= 2;
-                                break;
                             case "s":
                                 states[myclnm-1].hqwork -= 1;
                                 break;
-                            case "f":
-                                states[myclnm-1].lqwork -= 1;
-                                break;
                         }
                     }
-                    pa[Number(revd[3])].claim = 2;
-                    pa[Number(revd[3])].func = revd[4];
+                    pa[i-1].claim = Number(revd[i]);
                 }
-
-                if(Number(revd[5]) !== -1 && myclnm !== 3){
-                    if(pa[Number(revd[5])].claim === myclnm){
-                        states[myclnm-1].territories -= 1;
-                        switch(pa[Number(revd[5])].func){
-                            case "b":
-                                states[myclnm-1].population -= 2;
-                                break;
-                            case "s":
-                                states[myclnm-1].hqwork -= 1;
-                                break;
-                            case "f":
-                                states[myclnm-1].lqwork -= 1;
-                                break;
-                        }
-                    }
-                    pa[Number(revd[5])].claim = 3;
-                    pa[Number(revd[5])].func = revd[6];
+                for(var i = 101; i != 201; i+=1){
+                    pa[i-101].func = revd[i];
                 }
-
-                if(Number(revd[7]) !== -1 && myclnm !== 4){
-                    if(pa[Number(revd[7])].claim === myclnm){
-                        states[myclnm-1].territories -= 1;
-                        switch(pa[Number(revd[7])].func){
-                            case "b":
-                                states[myclnm-1].population -= 2;
-                                break;
-                            case "s":
-                                states[myclnm-1].hqwork -= 1;
-                                break;
-                            case "f":
-                                states[myclnm-1].lqwork -= 1;
-                                break;
-                        }
-                    }
-                    pa[Number(revd[7])].claim = 4;
-                    pa[Number(revd[7])].func = revd[8];
-                }
+                
                 websocket.send('ct='+myclnm+'='+lastmod.lid+'='+lastmod.type);
                 lastmod.lid = -1;
                 lastmod.type = "g";

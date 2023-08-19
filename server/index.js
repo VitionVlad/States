@@ -36,7 +36,7 @@ function oncon(wsClient){
                 const cid = Number(words[1]);
                 console.log("log:\u001b[36m sender ingame id="+cid+"\u001b[37m");
                 if(Number(words[2])!== -1){
-                    lm[Number(words[2])].id = myid;
+                    lm[Number(words[2])].id = Number(words[1]);
                     lm[Number(words[2])].type = words[3];
                 }
                 var sd = "ct=";

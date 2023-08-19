@@ -9,6 +9,7 @@
   "author": "vition vlad",
   "license": "GPL-3.0",
   "dependencies": {
+    "pkg": "^5.8.1",
     "ws": "^8.13.0"
   }
 }

@@ -9,14 +9,14 @@ var maxid = 0;
 
 class lmod{
     constructor(){
-        this.id = -1;
+        this.id = 0;
         this.type = "g";
     }
 }
 
-var lm = new Array(4);
+var lm = new Array(100);
 
-for(var i = 0; i != 4; i += 1){
+for(var i = 0; i != 100; i += 1){
     lm[i] = new lmod();
 }
 
@@ -35,9 +35,18 @@ function oncon(wsClient){
             if(words[0] === 'ct'){
                 const cid = Number(words[1]);
                 console.log("log:\u001b[36m sender ingame id="+cid+"\u001b[37m");
-                lm[cid-1].id = words[2];
-                lm[cid-1].type = words[3];
-                wsClient.send('ct='+lm[0].id+'='+lm[0].type+'='+lm[1].id+'='+lm[1].type+'='+lm[2].id+'='+lm[2].type+'='+lm[3].id+'='+lm[3].type);
+                if(Number(words[2])!== -1){
+                    lm[Number(words[2])].id = myid;
+                    lm[Number(words[2])].type = words[3];
+                }
+                var sd = "ct=";
+                for(var i = 0; i != 100; i +=1){
+                    sd += lm[i].id+"=";
+                }
+                for(var i = 0; i != 100; i +=1){
+                    sd += lm[i].type+"=";
+                }
+                wsClient.send(sd);
                 console.log("log:\u001b[36m message sent\u001b[37m");
             }
         });
@@ -62,6 +71,6 @@ serv.on('connection', oncon);
 
 console.log("log:\u001b[32m server is ready\u001b[37m");
 
-console.log("log:\u001b[32m local ipv4 = " + Object.values(require('os').networkInterfaces()).reduce((r, list) => r.concat(list.reduce((rr, i) => rr.concat(i.family==='IPv4' && !i.internal && i.address || []), [])), [])+"\u001b[37m");
+console.log("log:\u001b[32m local ipv4 = " + Object.values(require('os').networkInterfaces()).reduce((r, list) => r.concat(list.reduce((rr, i) => rr.concat(i.family==='IPv4' && !i.internal && i.address || []), [])), [])+":9000\u001b[37m");
 
 console.log("\u001b[35minfo\u001b[37m: press ctrl+c to close");

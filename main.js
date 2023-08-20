@@ -149,7 +149,7 @@ function conmp(){
             document.getElementById("bp").style.display = "none";
             document.getElementById("pb").style.display = "none";
             document.getElementById("hm").style.display = "none";
-            document.getElementById("ss").style.display = "none";
+            document.getElementById("hp").style.display = "none";
         };
         websocket.onerror = () => {
             alert("connection error");

@@ -217,6 +217,26 @@
       background-image: none;
       background-color: rgba(60, 60, 60, 0.56);
     }
+    .gwd-button-jn3p {
+      position: absolute;
+      height: 10%;
+      left: 50%;
+      width: 60%;
+      top: 85.31%;
+      transform: translate(-50%, -50%);
+    }
+    .gwd-p-1yqn {
+      position: absolute;
+      text-align: center;
+      background-image: none;
+      background-color: rgba(67, 66, 66, 0.71);
+      color: rgb(255, 254, 254);
+      left: 50%;
+      top: 50%;
+      width: 100%;
+      height: 100%;
+      transform: translate(-50%, -50%);
+    }
   </style>
   <script type="text/javascript" gwd-events="support" src="gwd-events-support.1.0.js"></script>
   <script type="text/javascript" gwd-events="handlers">
@@ -436,6 +456,22 @@
       // GWD Predefined Function
       gwd.actions.events.setInlineStyle('hm', 'display: none;');
     };
+    gwd.auto_PbClick6 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('hp', 'display: none;');
+    };
+    gwd.auto_PbClick7 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('hp', 'display: none;');
+    };
+    gwd.auto_HtClick = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('hpt', 'display: none;');
+    };
+    gwd.auto_HpClick = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('hpt', 'disaply: initial;');
+    };
   </script>
   <script type="text/javascript" gwd-events="registration">
     // Код для обработки событий в Google Web Designer
@@ -495,6 +531,10 @@
       gwd.actions.events.addHandler('pb', 'click', gwd.auto_PbClick3, false);
       gwd.actions.events.addHandler('pb', 'click', gwd.auto_PbClick4, false);
       gwd.actions.events.addHandler('pb', 'click', gwd.auto_PbClick5, false);
+      gwd.actions.events.addHandler('pb', 'click', gwd.auto_PbClick6, false);
+      gwd.actions.events.addHandler('pb', 'click', gwd.auto_PbClick7, false);
+      gwd.actions.events.addHandler('hpt', 'click', gwd.auto_HtClick, false);
+      gwd.actions.events.addHandler('hp', 'click', gwd.auto_HpClick, false);
     };
     gwd.actions.events.deregisterEventHandlers = function(event) {
       gwd.actions.events.removeHandler('cl', 'click', gwd.auto_ClClick, false);
@@ -551,6 +591,10 @@
       gwd.actions.events.removeHandler('pb', 'click', gwd.auto_PbClick3, false);
       gwd.actions.events.removeHandler('pb', 'click', gwd.auto_PbClick4, false);
       gwd.actions.events.removeHandler('pb', 'click', gwd.auto_PbClick5, false);
+      gwd.actions.events.removeHandler('pb', 'click', gwd.auto_PbClick6, false);
+      gwd.actions.events.removeHandler('pb', 'click', gwd.auto_PbClick7, false);
+      gwd.actions.events.removeHandler('hpt', 'click', gwd.auto_HtClick, false);
+      gwd.actions.events.removeHandler('hp', 'click', gwd.auto_HpClick, false);
     };
     document.addEventListener("DOMContentLoaded", gwd.actions.events.registerEventHandlers);
     document.addEventListener("unload", gwd.actions.events.deregisterEventHandlers);
@@ -576,7 +620,9 @@
   <button class="gwd-button-1ci3" style="font-size: 3vw;" id="con" onclick="conmp()">Connect to a sever</button>
   <input type="text" id="cid" class="gwd-input-10m5" style="font-size: 3vw;" placeholder="Enter server local/public ip">
   <input type="text" id="hm" class="gwd-input-yd5u" style="font-size: 3vw;" placeholder="Enter number of seconds for bot to action">
+  <button class="gwd-button-jn3p" style="font-size: 3vw;" id="hp" onclick="document.getElementById('hpt').style.display = 'initial'">How to play</button>
   <p class="gwd-p-bbsz" style="backdrop-filter: blur(10px); font-size: 10vw; display: none;" id="we">Your device/browser does not support webgl2</p>
+  <p class="gwd-p-1yqn" style="backdrop-filter: blur(10px); font-size: 2.15vw; display: none;" id="hpt">How to play<br>"States" is a game centered around territorial acquisition, where your primary objective is to conquer all territories available. These territories fall into three categories: 'Yours,' 'Not Claimed' (which can be acquired freely), and 'Claimed by Others.' To capture the latter, your budget must exceed 50. Acquiring such territories necessitates the possession of a 'Ministry of Defence,' a prerequisite even for entering the territories of others. Boosting your budget demands a robust economy. This can be achieved by constructing houses to accommodate people, establishing factories for lower-skilled jobs, and founding schools for higher-skilled professions. Striking the right balance among these aspects will yield optimal economic growth. The establishment of schools mandates the existence of a 'Ministry of Education,' while both the 'Ministry of Education' and 'Ministry of Defence' necessitate the prior construction of a 'Parliament.' Additionally, the game features roads that persist even after being occupied.<br>How to play in multiplayer<br>You need a server app to be operational on a designated host. The application can be accessed through <a href="https://github.com/VitionVlad/StatesServer">this provided link</a>. You can run it within your local network or opt for a node.js hosting solution, which could be free or paid. IMPORTANT: When playing within your local network, if the local IP address does not commence with "localhost:9000" or "192," the system will establish an additional layer of security. However, please note that in a local network setup, this enhanced security might result in potential connectivity issues. Furthermore, when operating within a local network, it's essential to download the web page before establishing a connection.<br>Click to hide</p>
   <script src="data/textures/back_texture"></script>
   <script src="data/textures/bottom_texture"></script>
   <script src="data/textures/front_texture"></script>

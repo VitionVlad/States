@@ -7,6 +7,8 @@ console.log("log:\u001b[32m Server created\u001b[37m");
 
 var maxid = 0;
 
+var plnum = 0;
+
 class lmod{
     constructor(){
         this.id = 0;
@@ -24,10 +26,12 @@ console.log("log:\u001b[32m states class created\u001b[37m");
 
 function oncon(wsClient){
     maxid += 1;
-    const myid = maxid;
+    if(maxid >= 5){
+        maxid = 1;
+    }
+    plnum += 1;
     console.log("log:\u001b[36m connection established with id="+maxid+"\u001b[37m");
-    if(maxid < 5){
-        wsClient.send('id='+maxid);
+    wsClient.send('id='+maxid);
         wsClient.on('message', function(message) {
             console.log("log:\u001b[36m message recived\u001b[37m");
             var locmsg = String(message);
@@ -51,9 +55,9 @@ function oncon(wsClient){
             }
         });
         wsClient.on('close', function() {
-            maxid -= 1;
-            console.log("log:\u001b[31m id = " + myid + " leaves the server\u001b[37m");
-            if(maxid <= 0){
+            plnum -= 1;
+            console.log("log:\u001b[31m a player leaves the server\u001b[37m");
+            if(plnum <= 0){
                 console.log("log:\u001b[31m everybody leaved server, closing...\u001b[37m");
                 process.exit(0);
             }
@@ -62,9 +66,6 @@ function oncon(wsClient){
             console.log("log:\u001b[31m an error occurred, closing...\u001b[37m");
             process.exit(0);
         });
-    }else{
-        wsClient.close();
-    }
 }
 
 serv.on('connection', oncon);

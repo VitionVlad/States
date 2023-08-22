@@ -131,16 +131,19 @@ function twork(b, i){
     b.collision = false;
 }
 
-function conmp(){
+function conmp(sec){
     var cid = document.getElementById("cid").value;
     if(cid.length === 0){
         alert("please enter ip of the server you want ot connect" );
     }else{
         var websocket;
-        websocket = new WebSocket('wss://'+cid);
-        const sep = cid.split("");
-        if(cid === "localhost:9000" || (sep[0] === "1" && sep[1] === "9" && sep[2] === "2")){
-            websocket = new WebSocket('ws://'+cid);
+        switch(sec){
+            case 1:
+                websocket = new WebSocket('wss://'+cid);
+                break;
+            default:
+                websocket = new WebSocket('ws://'+cid);
+                break;
         }
         websocket.onopen = () => {
             document.getElementById("con").style.display = "none";
@@ -150,6 +153,13 @@ function conmp(){
             document.getElementById("pb").style.display = "none";
             document.getElementById("hm").style.display = "none";
             document.getElementById("hp").style.display = "none";
+            document.getElementById("spg").style.display = "none";
+            document.getElementById("mpg").style.display = "none";
+            document.getElementById("cons").style.display = "none";
+            document.getElementById("gid").style.display = "none";
+            document.getElementById("mn").style.display = "none";
+            document.getElementById("mcl").style.display = "none";
+            document.getElementById("itut").style.display = "none";
         };
         websocket.onerror = () => {
             alert("connection error");
@@ -167,20 +177,23 @@ function conmp(){
             const revd = event.data.split('=');
             if(revd[0] === "id"){
                 myclnm = Number(revd[1]);
-                switch(revd[1]){
-                    case "1":
+                if(document.getElementById("gid").value != 0){
+                    myclnm = Number(document.getElementById("gid").value);
+                }
+                switch(myclnm){
+                    case 1:
                         eng.pos.z = 40.0;
                         eng.pos.x = 40.0;
                         break;
-                    case "2":
+                    case 2:
                         eng.pos.z = 40.0;
                         eng.pos.x = -40.0;
                         break;
-                    case "3":
+                    case 3:
                         eng.pos.z = -40.0;
                         eng.pos.x = 40.0;
                         break;
-                    case "4":
+                    case 4:
                         eng.pos.z = -40.0;
                         eng.pos.x = -40.0;
                         break;

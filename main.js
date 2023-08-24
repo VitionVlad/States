@@ -200,24 +200,30 @@ function conmp(sec){
                 }
                 websocket.send('ct='+myclnm+'='+lastmod.lid+'='+lastmod.type);
             }else if(revd[0] === "ct"){
+                states[myclnm-1].population = 0;
+                states[myclnm-1].lqwork = 0;
+                states[myclnm-1].hqwork = 0;
+                states[myclnm-1].territories = 0;
                 for(var i = 1; i != 101; i+=1){
-                    if(pa[i-1].claim === myclnm  && Number(revd[i]) !== myclnm && Number(revd[i]) !== 0){
-                        switch(pa[i-1].func){
-                            case "b":
-                                states[myclnm-1].population -= 2;
-                                break;
-                            case "f":
-                                states[myclnm-1].lqwork -= 1;
-                                break;
-                            case "s":
-                                states[myclnm-1].hqwork -= 1;
-                                break;
-                        }
-                        states[myclnm-1].territories -= 1;
+                    if(Number(revd[i]) === myclnm){
+                        states[myclnm-1].territories += 1;
                     }
                     pa[i-1].claim = Number(revd[i]);
                 }
                 for(var i = 101; i != 201; i+=1){
+                    if(pa[i-101].claim === myclnm){
+                        switch(revd[i]){
+                            case "b":
+                                states[myclnm-1].population += 2;
+                                break;
+                            case "s":
+                                states[myclnm-1].hqwork += 1;
+                                break;
+                            case "f":
+                                states[myclnm-1].lqwork += 1;
+                                break;
+                        }
+                    }
                     pa[i-101].func = revd[i];
                 }
                 
@@ -658,7 +664,7 @@ function main(){
         }
 
         if(states[myclnm-1].hadterritories === true && states[myclnm-1].territories <= 0){
-            alert("you lost!");
+            alert("Game over!");
             setTimeout(function(){
                 window.location.reload();
               });

@@ -39,7 +39,7 @@ class state{
     }
 }
 
-var eng = new Engine("#render", standartPostProces, 0.15, 4000);
+var eng = new Engine("#render", standartPostProces, 0.15, 6000);
 
 var myclnm = 1;
 
@@ -131,6 +131,8 @@ function twork(b, i){
     b.collision = false;
 }
 
+var netcom = 0;
+
 function conmp(sec){
     var cid = document.getElementById("cid").value;
     if(cid.length === 0){
@@ -160,6 +162,7 @@ function conmp(sec){
             document.getElementById("mn").style.display = "none";
             document.getElementById("mcl").style.display = "none";
             document.getElementById("itut").style.display = "none";
+            document.getElementById("ver").style.display = "none";
         };
         websocket.onerror = () => {
             alert("connection error");
@@ -200,6 +203,9 @@ function conmp(sec){
                 }
                 websocket.send('ct='+myclnm+'='+lastmod.lid+'='+lastmod.type);
             }else if(revd[0] === "ct"){
+                if(netcom === 2){
+                    netcom = 0;
+                }
                 states[myclnm-1].population = 0;
                 states[myclnm-1].lqwork = 0;
                 states[myclnm-1].hqwork = 0;
@@ -226,10 +232,10 @@ function conmp(sec){
                     }
                     pa[i-101].func = revd[i];
                 }
-                
                 websocket.send('ct='+myclnm+'='+lastmod.lid+'='+lastmod.type);
                 lastmod.lid = -1;
                 lastmod.type = "g";
+                netcom += 1;
             }
         };
     }
@@ -278,8 +284,8 @@ function swmn(newf){
 function main(){
     const speed = 0.2;
     eng.useorthosh = true;
-    eng.sfar = 200.0;
-    eng.sfov = 30.0;
+    eng.sfar = 250.0;
+    eng.sfov = 50.0;
     eng.playerphysics = false;
     eng.pos.y = -15;
     eng.camsize.y = 100;
@@ -339,10 +345,8 @@ function main(){
         }
     }
 
-    eng.shadowpos.z = -60.0;
-    eng.shadowpos.x = -60.0;
-    eng.shadowpos.y = -40.7;
-    eng.shadowrot.y = 0.7;
+    eng.shadowpos.y = -60.7;
+    eng.shadowrot.y = 0.6;
     eng.shadowrot.x = -0.7;
     eng.setLight(0, new vec3(0, 1, 1), new vec3(1, 1, 1), 1);
 
@@ -378,16 +382,23 @@ function main(){
 
     var wtfb = 0;
 
+    eng.shadowpos.z = -60;
+    eng.shadowpos.x = -60;
+
     key_callback();
     drawFrame();
     function drawFrame(now){
         eng.fov = 65 - Number(document.getElementById("zm").value);
         document.getElementById("bd").style.color = "green";
-        document.getElementById("bd").innerHTML = "Budget: " + states[myclnm-1].budget;
+        if(sp){
+            document.getElementById("bd").innerHTML = "Budget: " + states[myclnm-1].budget;
+        }else{
+            document.getElementById("bd").innerHTML = "State id: " + myclnm + " Budget: " + states[myclnm-1].budget;
+        }
         pawn.pos.x = -eng.pos.x;
         pawn.pos.z = -eng.pos.z;
-        eng.shadowpos.z = eng.pos.z - 45.0;
-        eng.shadowpos.x = eng.pos.x - 45.0;
+        //eng.shadowpos.z = eng.pos.z - 45.0;
+        //eng.shadowpos.x = eng.pos.x - 45.0;
 
         if(sp === true){
             if(gbeg === true && waitfb >= eng.fps*hm){
@@ -663,7 +674,7 @@ function main(){
             applych = false;
         }
 
-        if(states[myclnm-1].hadterritories === true && states[myclnm-1].territories <= 0){
+        if(states[myclnm-1].hadterritories === true && states[myclnm-1].territories <= 0 && (netcom === 2 || sp === true)){
             alert("Game over!");
             setTimeout(function(){
                 window.location.reload();

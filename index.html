@@ -175,17 +175,19 @@
       position: absolute;
       width: 60%;
       left: 50.11%;
-      top: 31.58%;
       height: 10%;
-      transform: translate(-50%, -50%) translate3d(0px, 68px, 0px);
+      font-family: "Times New Roman";
+      top: 16.21%;
+      transform: translate(-50%, -50%);
     }
     .gwd-button-1ci3 {
       position: absolute;
       height: 10%;
       width: 60%;
-      left: 50.23%;
       top: 67.04%;
-      transform: translate(-50%, -50%) translate3d(2px, 0px, 0px);
+      font-family: "Times New Roman";
+      left: 50.46%;
+      transform: translate(-50%, -50%);
     }
     .gwd-input-10m5 {
       position: absolute;
@@ -213,8 +215,9 @@
       height: 10%;
       left: 50%;
       width: 60%;
-      top: 85.31%;
-      transform: translate(-50%, -50%) translate3d(0px, -88px, 0px);
+      top: 71.92%;
+      transform: translate(-50%, -50%);
+      font-family: "Times New Roman";
     }
     .gwd-p-1yqn {
       position: absolute;
@@ -234,6 +237,8 @@
       top: 50%;
       height: 80%;
       width: 80%;
+      background-image: none;
+      background-color: rgba(44, 44, 44, 0.72);
       transform: translate(-50%, -50%);
     }
     .gwd-button-1l3d {
@@ -243,6 +248,7 @@
       transform: translate(-50%, -50%);
       top: 85%;
       width: 60%;
+      font-family: "Times New Roman";
     }
     .gwd-input-1k10 {
       transform: translate(-50%, -50%) translate3d(3px, 0px, 0px);
@@ -252,7 +258,7 @@
       height: 10%;
       width: 59%;
       left: 50%;
-      top: 56.85%;
+      top: 31.13%;
       transform: translate(-50%, -50%);
     }
     .gwd-button-1x0t {
@@ -262,6 +268,7 @@
       left: 50.23%;
       top: 53.5%;
       transform: translate(-50%, -50%) translate3d(2px, 0px, 0px);
+      font-family: "Times New Roman";
     }
     .gwd-input-y9wv {
       position: absolute;
@@ -289,6 +296,14 @@
       height: 10.05%;
       top: 44.82%;
       transform: translate(-50%, -50%);
+      font-family: "Times New Roman";
+      border-image-source: none;
+      border-image-width: 1;
+      border-image-outset: 0;
+      border-image-repeat: stretch;
+      border-color: transparent;
+      background-image: none;
+      color: rgb(0, 0, 0);
     }
     .gwd-button-1rls {
       position: absolute;
@@ -297,6 +312,30 @@
       height: 10.05%;
       top: 58.37%;
       transform: translate(-50%, -50%);
+      font-family: "Times New Roman";
+      color: rgb(0, 0, 0);
+    }
+    .gwd-span-8jpl {
+      position: absolute;
+      font-size: 23.166px;
+      text-align: center;
+      color: rgb(255, 254, 254);
+      width: 60.05%;
+      height: 4.11%;
+      left: 50%;
+      top: 41.78%;
+      transform: translate(-50%, -50%);
+    }
+    .gwd-span-1yzw {
+      position: absolute;
+      font-size: 23.166px;
+      text-align: center;
+      color: rgb(255, 254, 254);
+      top: 100%;
+      transform: translate(0%, -100%);
+      left: 0%;
+      width: 4.63%;
+      height: 4.11%;
     }
   </style>
   <script type="text/javascript" gwd-events="support" src="gwd-events-support.1.0.js"></script>
@@ -633,6 +672,22 @@
       // GWD Predefined Function
       gwd.actions.events.setInlineStyle('mpg', 'display: none;');
     };
+    gwd.auto_MclClick9 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('snm', 'display: none;');
+    };
+    gwd.auto_PbClick13 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('snm', 'display: none;');
+    };
+    gwd.auto_SpgClick4 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('snm', 'display: initial;');
+    };
+    gwd.auto_PbClick14 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('ver', 'display: none;');
+    };
   </script>
   <script type="text/javascript" gwd-events="registration">
     // Код для обработки событий в Google Web Designer
@@ -721,6 +776,10 @@
       gwd.actions.events.addHandler('mcl', 'click', gwd.auto_MclClick8, false);
       gwd.actions.events.addHandler('pb', 'click', gwd.auto_PbClick11, false);
       gwd.actions.events.addHandler('pb', 'click', gwd.auto_PbClick12, false);
+      gwd.actions.events.addHandler('mcl', 'click', gwd.auto_MclClick9, false);
+      gwd.actions.events.addHandler('pb', 'click', gwd.auto_PbClick13, false);
+      gwd.actions.events.addHandler('spg', 'click', gwd.auto_SpgClick4, false);
+      gwd.actions.events.addHandler('pb', 'click', gwd.auto_PbClick14, false);
     };
     gwd.actions.events.deregisterEventHandlers = function(event) {
       gwd.actions.events.removeHandler('cl', 'click', gwd.auto_ClClick, false);
@@ -806,6 +865,10 @@
       gwd.actions.events.removeHandler('mcl', 'click', gwd.auto_MclClick8, false);
       gwd.actions.events.removeHandler('pb', 'click', gwd.auto_PbClick11, false);
       gwd.actions.events.removeHandler('pb', 'click', gwd.auto_PbClick12, false);
+      gwd.actions.events.removeHandler('mcl', 'click', gwd.auto_MclClick9, false);
+      gwd.actions.events.removeHandler('pb', 'click', gwd.auto_PbClick13, false);
+      gwd.actions.events.removeHandler('spg', 'click', gwd.auto_SpgClick4, false);
+      gwd.actions.events.removeHandler('pb', 'click', gwd.auto_PbClick14, false);
     };
     document.addEventListener("DOMContentLoaded", gwd.actions.events.registerEventHandlers);
     document.addEventListener("unload", gwd.actions.events.deregisterEventHandlers);
@@ -864,6 +927,7 @@
   <script src="Shadow.js"></script>
   <p class="gwd-p-bbsz" style="backdrop-filter: blur(10px); font-size: 10vw; display: none;" id="we">Your device/browser does not support webgl2</p>
   <script src="main.js"></script>
-  </body>
+  <span class="gwd-span-8jpl" style="display: none; font-size: 3vw;" id="snm">Enter the number of seconds for bot to action</span><span class="gwd-span-1yzw" id="ver">1.0b</span>
+</body>
 
 </html>

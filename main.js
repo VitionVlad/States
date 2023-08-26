@@ -67,6 +67,10 @@ var conn;
 
 var hm = 1;
 
+var btp = new Audio('data/audio/btpress.mp3');
+
+var coin = new Audio('data/audio/coin.mp3');
+
 function begsp(){
     myclnm = 1;
     sp = true;
@@ -116,6 +120,7 @@ function twork(b, i){
             b.collision = false;
             b.Draw(eng);
             if(b.interacting && tlc && states[myclnm-1].budget >= 50){
+                coin.play();
                 pa[i].claim = myclnm;
                 pa[i].func = "g";
                 states[myclnm-1].budget -= 50;
@@ -247,6 +252,7 @@ function tlact(){
     tlc = true;
 }
 function swmn(newf){
+    coin.play();
     if(newf !== "ad" && states[myclnm-1].budget >= 10){
         switchfunc = newf;
         if(newf === "b"){
@@ -591,6 +597,7 @@ function main(){
                                 states[myclnm-1].territories += 1;
                                 lastmod.type = "g";
                                 lastmod.lid = i;
+                                coin.play();
                             }
                         }else{
                             g.collision = true;
@@ -635,6 +642,7 @@ function main(){
                                 states[myclnm-1].territories += 1;
                                 lastmod.type = "r";
                                 lastmod.lid = i;
+                                coin.play();
                             }
                         }else{
                             r.collision = true;

@@ -291,7 +291,7 @@ function main(){
     const speed = 0.2;
     eng.useorthosh = true;
     eng.sfar = 250.0;
-    eng.sfov = 50.0;
+    eng.sfov = 65.0;
     eng.playerphysics = false;
     eng.pos.y = -15;
     eng.camsize.y = 100;

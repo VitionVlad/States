@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=500, initial-scale=1">
+  <meta charset="utf-8">
+  <title>States</title>
+  <meta name="generator" content="Google Web Designer 15.2.1.0306">
+  <style id="gwd-text-style">
+    p {
+      margin: 0px;
+    }
+    h1 {
+      margin: 0px;
+    }
+    h2 {
+      margin: 0px;
+    }
+    h3 {
+      margin: 0px;
+    }
+  </style>
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0px;
+    }
+    body {
+      background-color: transparent;
+      transform: perspective(1400px) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      transform-style: preserve-3d;
+    }
+    body * {
+      transform-style: preserve-3d;
+    }
+    .gwd-canvas-11rh {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .gwd-input-1z0k {
+      position: absolute;
+      border-width: 0pt;
+      border-style: solid;
+      margin: 2%;
+      width: 60.05%;
+      left: 47.95%;
+      transform-origin: 438px 14.2283px 0px;
+      height: 5%;
+      transform: translate(-50%, -100%);
+      top: 96%;
+    }
+    .gwd-p-ul6c {
+      position: absolute;
+      transform-origin: 50% 50% 0px;
+      text-align: center;
+      top: 100%;
+      line-height: 64px;
+      height: 10.05%;
+      width: 60.05%;
+      left: 50%;
+      transform: translate(-50%, -100%) translate3d(0px, -118px, 0px);
+    }
+    .gwd-span-1115 {
+      font-size: 50px;
+      color: rgb(1, 131, 18);
+    }
+    .gwd-button-ltx3 {
+      position: absolute;
+      width: 60.05%;
+      height: 6.54%;
+      transform-origin: 50% 50% 0px;
+      left: 50%;
+      top: 100%;
+      transform: translate(-50%, -100%) translate3d(0px, -75px, 0px);
+    }
+    .gwd-div-1jju {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      background-image: none;
+      background-color: rgb(195, 195, 195);
+    }
+    .gwd-p-1ypy {
+      position: absolute;
+      left: 50%;
+      top: 0%;
+      height: 7.91%;
+      width: 100%;
+      transform: translate(-50%, 0%);
+      text-align: center;
+    }
+    .gwd-button-1rx2 {
+      position: absolute;
+      width: 100%;
+      height: 10.05%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-family: "Times New Roman";
+    }
+    .gwd-button-1ssc {
+      position: absolute;
+      width: 100%;
+      height: 10.05%;
+      left: 50%;
+      top: 37.98%;
+      transform: translate(-50%, -50%);
+      font-family: "Times New Roman";
+    }
+    .gwd-button-mc1z {
+      position: absolute;
+      width: 100%;
+      height: 10.05%;
+      left: 50%;
+      top: 62.02%;
+      transform: translate(-50%, -50%);
+      font-family: "Times New Roman";
+    }
+    .gwd-button-k695 {
+      position: absolute;
+      width: 100%;
+      height: 10.05%;
+      left: 50%;
+      top: 74.05%;
+      transform: translate(-50%, -50%);
+      font-family: "Times New Roman";
+    }
+    .gwd-button-16zu {
+      position: absolute;
+      width: 100%;
+      height: 10.05%;
+      left: 50%;
+      top: 25.34%;
+      transform: translate(-50%, -50%);
+      font-family: "Times New Roman";
+    }
+    .gwd-button-1i53 {
+      position: absolute;
+      width: 100%;
+      height: 10.05%;
+      left: 50%;
+      top: 100%;
+      transform: translate(-50%, -100%);
+      font-family: "Times New Roman";
+    }
+    .gwd-img-19wg {
+      position: absolute;
+      transform-origin: 50% 50% 0px;
+      width: 100%;
+      height: 100%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .gwd-p-14kk {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, 0%);
+      color: rgb(240, 235, 235);
+      top: 0%;
+      transform-origin: 50% 50% 0px;
+      text-align: center;
+      width: 100%;
+      height: 20%;
+    }
+    .gwd-button-1hew {
+      position: absolute;
+      width: 60%;
+      left: 50.11%;
+      height: 10%;
+      font-family: "Times New Roman";
+      top: 16.21%;
+      transform: translate(-50%, -50%);
+    }
+    .gwd-button-1ci3 {
+      position: absolute;
+      height: 10%;
+      width: 60%;
+      top: 67.04%;
+      font-family: "Times New Roman";
+      left: 50.46%;
+      transform: translate(-50%, -50%);
+    }
+    .gwd-input-10m5 {
+      position: absolute;
+      transform-origin: 50% 50% 0px;
+      width: 59.45%;
+      height: 10%;
+      transform: translate(-50%, -50%) translate3d(-1px, 0px, 0px);
+      left: 50.23%;
+      top: 15.75%;
+    }
+    .gwd-p-bbsz {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      color: rgb(251, 251, 251);
+      background-image: none;
+      background-color: rgba(60, 60, 60, 0.56);
+    }
+    .gwd-button-jn3p {
+      position: absolute;
+      height: 10%;
+      left: 50%;
+      width: 60%;
+      top: 71.92%;
+      transform: translate(-50%, -50%);
+      font-family: "Times New Roman";
+    }
+    .gwd-p-1yqn {
+      position: absolute;
+      text-align: center;
+      background-image: none;
+      background-color: rgba(67, 66, 66, 0.71);
+      color: rgb(255, 254, 254);
+      left: 50%;
+      top: 50%;
+      width: 100%;
+      transform: translate(-50%, -50%);
+      height: 85%;
+    }
+    .gwd-div-c0sv {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      height: 80%;
+      width: 80%;
+      background-image: none;
+      background-color: rgba(44, 44, 44, 0.72);
+      transform: translate(-50%, -50%);
+    }
+    .gwd-button-1l3d {
+      position: absolute;
+      height: 9.54%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      top: 85%;
+      width: 60%;
+      font-family: "Times New Roman";
+    }
+    .gwd-input-1k10 {
+      transform: translate(-50%, -50%) translate3d(3px, 0px, 0px);
+    }
+    .gwd-input-1xva {
+      position: absolute;
+      height: 10%;
+      width: 59%;
+      left: 50%;
+      top: 31.13%;
+      transform: translate(-50%, -50%);
+    }
+    .gwd-button-1x0t {
+      position: absolute;
+      height: 10%;
+      width: 60%;
+      left: 50.23%;
+      top: 53.5%;
+      transform: translate(-50%, -50%) translate3d(2px, 0px, 0px);
+      font-family: "Times New Roman";
+    }
+    .gwd-input-y9wv {
+      position: absolute;
+      height: 5%;
+      width: 59%;
+      left: 50.23%;
+      top: 40.11%;
+      transform: translate(-50%, -50%) translate3d(2px, 0px, 0px);
+    }
+    .gwd-span-3xx7 {
+      position: absolute;
+      font-size: 23.166px;
+      text-align: center;
+      color: rgb(255, 254, 254);
+      width: 59.7%;
+      height: 5%;
+      left: 50.23%;
+      top: 29.15%;
+      transform: translate(-50%, -50%) translate3d(-3px, 0px, 0px);
+    }
+    .gwd-button-4v5l {
+      position: absolute;
+      left: 50%;
+      width: 60%;
+      height: 10.05%;
+      top: 44.82%;
+      transform: translate(-50%, -50%);
+      font-family: "Times New Roman";
+      border-image-source: none;
+      border-image-width: 1;
+      border-image-outset: 0;
+      border-image-repeat: stretch;
+      border-color: transparent;
+      background-image: none;
+      color: rgb(0, 0, 0);
+    }
+    .gwd-button-1rls {
+      position: absolute;
+      left: 50%;
+      width: 60%;
+      height: 10.05%;
+      top: 58.37%;
+      transform: translate(-50%, -50%);
+      font-family: "Times New Roman";
+      color: rgb(0, 0, 0);
+    }
+    .gwd-span-8jpl {
+      position: absolute;
+      font-size: 23.166px;
+      text-align: center;
+      color: rgb(255, 254, 254);
+      width: 60.05%;
+      height: 4.11%;
+      left: 50%;
+      top: 41.78%;
+      transform: translate(-50%, -50%);
+    }
+    .gwd-span-1yzw {
+      position: absolute;
+      font-size: 23.166px;
+      text-align: center;
+      color: rgb(255, 254, 254);
+      top: 100%;
+      transform: translate(0%, -100%);
+      left: 0%;
+      width: 4.63%;
+      height: 4.11%;
+    }
+  </style>
+  <script type="text/javascript" gwd-events="support" src="gwd-events-support.1.0.js"></script>
+  <script type="text/javascript" gwd-events="handlers">
+    gwd.auto_ClClick = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('t1', 'display: none;');
+    };
+    gwd.auto_ClClick1 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('db', 'display: none;');
+    };
+    gwd.auto_ClClick2 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('b1', 'display: none;');
+    };
+    gwd.auto_ClClick3 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('b2', 'display: none;');
+    };
+    gwd.auto_ClClick4 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('b3', 'display: none;');
+    };
+    gwd.auto_ClClick5 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('b4', 'display: none;');
+    };
+    gwd.auto_ClClick6 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('b5', 'display: none;');
+    };
+    gwd.auto_ClClick7 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('cl', 'display: none;');
+    };
+    gwd.auto_B5Click = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('t1', 'display: none;');
+    };
+    gwd.auto_B4Click = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('t1', 'display: none;');
+    };
+    gwd.auto_B3Click = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('t1', 'display: none;');
+    };
+    gwd.auto_B2Click = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('t1', 'display: none;');
+    };
+    gwd.auto_B1Click = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('t1', 'display: none;');
+    };
+    gwd.auto_B5Click1 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('db', 'display: none;');
+    };
+    gwd.auto_B4Click1 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('db', 'display: none;');
+    };
+    gwd.auto_B3Click1 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('db', 'display: none;');
+    };
+    gwd.auto_B2Click1 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('db', 'display: none;');
+    };
+    gwd.auto_B1Click1 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('db', 'display: none;');
+    };
+    gwd.auto_B1Click2 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('b1', 'display: none;');
+    };
+    gwd.auto_B2Click2 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('b1', 'display: none;');
+    };
+    gwd.auto_B3Click2 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('b1', 'display: none;');
+    };
+    gwd.auto_B4Click2 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('b1', 'display: none;');
+    };
+    gwd.auto_B5Click2 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('b1', 'display: none;');
+    };
+    gwd.auto_B5Click3 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('b2', 'display: none;');
+    };
+    gwd.auto_B4Click3 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('b2', 'display: none;');
+    };
+    gwd.auto_B3Click3 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('b2', 'display: none;');
+    };
+    gwd.auto_B2Click3 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('b2', 'display: none;');
+    };
+    gwd.auto_B1Click3 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('b2', 'display: none;');
+    };
+    gwd.auto_B1Click4 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('b3', 'display: none;');
+    };
+    gwd.auto_B2Click4 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('b3', 'display: none;');
+    };
+    gwd.auto_B3Click4 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('b3', 'display: none;');
+    };
+    gwd.auto_B4Click4 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('b3', 'display: none;');
+    };
+    gwd.auto_B5Click4 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('b3', 'display: none;');
+    };
+    gwd.auto_B5Click5 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('b4', 'display: none;');
+    };
+    gwd.auto_B4Click5 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('b4', 'display: none;');
+    };
+    gwd.auto_B3Click5 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('b4', 'display: none;');
+    };
+    gwd.auto_B2Click5 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('b4', 'display: none;');
+    };
+    gwd.auto_B1Click5 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('b4', 'display: none;');
+    };
+    gwd.auto_B1Click6 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('b5', 'display: none;');
+    };
+    gwd.auto_B2Click6 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('b5', 'display: none;');
+    };
+    gwd.auto_B3Click6 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('b5', 'display: none;');
+    };
+    gwd.auto_B4Click6 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('b5', 'display: none;');
+    };
+    gwd.auto_B5Click6 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('b5', 'display: none;');
+    };
+    gwd.auto_B1Click7 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('cl', 'display: none;');
+    };
+    gwd.auto_B2Click7 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('cl', 'display: none;');
+    };
+    gwd.auto_B3Click7 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('cl', 'display: none;');
+    };
+    gwd.auto_B4Click7 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('cl', 'display: none;');
+    };
+    gwd.auto_B5Click7 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('cl', 'display: none;');
+    };
+    gwd.auto_PbClick = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('bp', 'display: none;');
+    };
+    gwd.auto_PbClick1 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('ti', 'display: none;');
+    };
+    gwd.auto_PbClick2 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('pb', 'display: none;');
+    };
+    gwd.auto_PbClick3 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('con', 'display: none;');
+    };
+    gwd.auto_PbClick4 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('cid', 'display: none;');
+    };
+    gwd.auto_PbClick6 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('hp', 'display: none;');
+    };
+    gwd.auto_PbClick7 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('hp', 'display: none;');
+    };
+    gwd.auto_HtClick = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('hpt', 'display: none;');
+    };
+    gwd.auto_HpClick = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('hpt', 'disaply: initial;');
+    };
+    gwd.auto_PbClick8 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('mn', 'display: none;');
+    };
+    gwd.auto_PbClick9 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('mcl', 'display: none;');
+    };
+    gwd.auto_MclClick = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('mn', 'display: none;');
+    };
+    gwd.auto_MclClick1 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('mcl', 'display: none;');
+    };
+    gwd.auto_MclClick3 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('pb', 'display: none;');
+    };
+    gwd.auto_MclClick2 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('hm', 'display: none;');
+    };
+    gwd.auto_PbClick5 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('hm', 'display: none;');
+    };
+    gwd.auto_PbClick10 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('cons', 'display: none;');
+    };
+    gwd.auto_SpgClick = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('mn', 'display: initial;');
+    };
+    gwd.auto_SpgClick1 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('mcl', 'display: initial;');
+    };
+    gwd.auto_MpgClick = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('mn', 'display: initial;');
+    };
+    gwd.auto_MpgClick1 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('mcl', 'display: initial;');
+    };
+    gwd.auto_SpgClick2 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('pb', 'display: initial;');
+    };
+    gwd.auto_SpgClick3 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('hm', 'display: initial;');
+    };
+    gwd.auto_MpgClick2 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('cid', 'display: initial;');
+    };
+    gwd.auto_MpgClick3 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('itut', 'display: initial;');
+    };
+    gwd.auto_MpgClick4 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('gid', 'display: initial;');
+    };
+    gwd.auto_MpgClick5 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('cons', 'display: initial;');
+    };
+    gwd.auto_MpgClick6 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('con', 'display: initial;');
+    };
+    gwd.auto_MclClick4 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('cid', 'display: none;');
+    };
+    gwd.auto_MclClick5 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('itut', 'display: none;');
+    };
+    gwd.auto_MclClick6 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('gid', 'display: none;');
+    };
+    gwd.auto_MclClick7 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('cons', 'display: none;');
+    };
+    gwd.auto_MclClick8 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('con', 'display: none;');
+    };
+    gwd.auto_PbClick11 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('spg', 'display: none;');
+    };
+    gwd.auto_PbClick12 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('mpg', 'display: none;');
+    };
+    gwd.auto_MclClick9 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('snm', 'display: none;');
+    };
+    gwd.auto_PbClick13 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('snm', 'display: none;');
+    };
+    gwd.auto_SpgClick4 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('snm', 'display: initial;');
+    };
+    gwd.auto_PbClick14 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.events.setInlineStyle('ver', 'display: none;');
+    };
+  </script>
+  <script type="text/javascript" gwd-events="registration">
+    // Код для обработки событий в Google Web Designer
+    // Этот блок скрипта создается автоматически, не изменяйте его.
+    gwd.actions.events.registerEventHandlers = function(event) {
+      gwd.actions.events.addHandler('cl', 'click', gwd.auto_ClClick, false);
+      gwd.actions.events.addHandler('cl', 'click', gwd.auto_ClClick1, false);
+      gwd.actions.events.addHandler('cl', 'click', gwd.auto_ClClick2, false);
+      gwd.actions.events.addHandler('cl', 'click', gwd.auto_ClClick3, false);
+      gwd.actions.events.addHandler('cl', 'click', gwd.auto_ClClick4, false);
+      gwd.actions.events.addHandler('cl', 'click', gwd.auto_ClClick5, false);
+      gwd.actions.events.addHandler('cl', 'click', gwd.auto_ClClick6, false);
+      gwd.actions.events.addHandler('cl', 'click', gwd.auto_ClClick7, false);
+      gwd.actions.events.addHandler('b5', 'click', gwd.auto_B5Click, false);
+      gwd.actions.events.addHandler('b4', 'click', gwd.auto_B4Click, false);
+      gwd.actions.events.addHandler('b3', 'click', gwd.auto_B3Click, false);
+      gwd.actions.events.addHandler('b2', 'click', gwd.auto_B2Click, false);
+      gwd.actions.events.addHandler('b1', 'click', gwd.auto_B1Click, false);
+      gwd.actions.events.addHandler('b5', 'click', gwd.auto_B5Click1, false);
+      gwd.actions.events.addHandler('b4', 'click', gwd.auto_B4Click1, false);
+      gwd.actions.events.addHandler('b3', 'click', gwd.auto_B3Click1, false);
+      gwd.actions.events.addHandler('b2', 'click', gwd.auto_B2Click1, false);
+      gwd.actions.events.addHandler('b1', 'click', gwd.auto_B1Click1, false);
+      gwd.actions.events.addHandler('b1', 'click', gwd.auto_B1Click2, false);
+      gwd.actions.events.addHandler('b2', 'click', gwd.auto_B2Click2, false);
+      gwd.actions.events.addHandler('b3', 'click', gwd.auto_B3Click2, false);
+      gwd.actions.events.addHandler('b4', 'click', gwd.auto_B4Click2, false);
+      gwd.actions.events.addHandler('b5', 'click', gwd.auto_B5Click2, false);
+      gwd.actions.events.addHandler('b5', 'click', gwd.auto_B5Click3, false);
+      gwd.actions.events.addHandler('b4', 'click', gwd.auto_B4Click3, false);
+      gwd.actions.events.addHandler('b3', 'click', gwd.auto_B3Click3, false);
+      gwd.actions.events.addHandler('b2', 'click', gwd.auto_B2Click3, false);
+      gwd.actions.events.addHandler('b1', 'click', gwd.auto_B1Click3, false);
+      gwd.actions.events.addHandler('b1', 'click', gwd.auto_B1Click4, false);
+      gwd.actions.events.addHandler('b2', 'click', gwd.auto_B2Click4, false);
+      gwd.actions.events.addHandler('b3', 'click', gwd.auto_B3Click4, false);
+      gwd.actions.events.addHandler('b4', 'click', gwd.auto_B4Click4, false);
+      gwd.actions.events.addHandler('b5', 'click', gwd.auto_B5Click4, false);
+      gwd.actions.events.addHandler('b5', 'click', gwd.auto_B5Click5, false);
+      gwd.actions.events.addHandler('b4', 'click', gwd.auto_B4Click5, false);
+      gwd.actions.events.addHandler('b3', 'click', gwd.auto_B3Click5, false);
+      gwd.actions.events.addHandler('b2', 'click', gwd.auto_B2Click5, false);
+      gwd.actions.events.addHandler('b1', 'click', gwd.auto_B1Click5, false);
+      gwd.actions.events.addHandler('b1', 'click', gwd.auto_B1Click6, false);
+      gwd.actions.events.addHandler('b2', 'click', gwd.auto_B2Click6, false);
+      gwd.actions.events.addHandler('b3', 'click', gwd.auto_B3Click6, false);
+      gwd.actions.events.addHandler('b4', 'click', gwd.auto_B4Click6, false);
+      gwd.actions.events.addHandler('b5', 'click', gwd.auto_B5Click6, false);
+      gwd.actions.events.addHandler('b1', 'click', gwd.auto_B1Click7, false);
+      gwd.actions.events.addHandler('b2', 'click', gwd.auto_B2Click7, false);
+      gwd.actions.events.addHandler('b3', 'click', gwd.auto_B3Click7, false);
+      gwd.actions.events.addHandler('b4', 'click', gwd.auto_B4Click7, false);
+      gwd.actions.events.addHandler('b5', 'click', gwd.auto_B5Click7, false);
+      gwd.actions.events.addHandler('pb', 'click', gwd.auto_PbClick, false);
+      gwd.actions.events.addHandler('pb', 'click', gwd.auto_PbClick1, false);
+      gwd.actions.events.addHandler('pb', 'click', gwd.auto_PbClick2, false);
+      gwd.actions.events.addHandler('pb', 'click', gwd.auto_PbClick3, false);
+      gwd.actions.events.addHandler('pb', 'click', gwd.auto_PbClick4, false);
+      gwd.actions.events.addHandler('pb', 'click', gwd.auto_PbClick6, false);
+      gwd.actions.events.addHandler('pb', 'click', gwd.auto_PbClick7, false);
+      gwd.actions.events.addHandler('hpt', 'click', gwd.auto_HtClick, false);
+      gwd.actions.events.addHandler('hp', 'click', gwd.auto_HpClick, false);
+      gwd.actions.events.addHandler('pb', 'click', gwd.auto_PbClick8, false);
+      gwd.actions.events.addHandler('pb', 'click', gwd.auto_PbClick9, false);
+      gwd.actions.events.addHandler('mcl', 'click', gwd.auto_MclClick, false);
+      gwd.actions.events.addHandler('mcl', 'click', gwd.auto_MclClick1, false);
+      gwd.actions.events.addHandler('mcl', 'click', gwd.auto_MclClick3, false);
+      gwd.actions.events.addHandler('mcl', 'click', gwd.auto_MclClick2, false);
+      gwd.actions.events.addHandler('pb', 'click', gwd.auto_PbClick5, false);
+      gwd.actions.events.addHandler('pb', 'click', gwd.auto_PbClick10, false);
+      gwd.actions.events.addHandler('spg', 'click', gwd.auto_SpgClick, false);
+      gwd.actions.events.addHandler('spg', 'click', gwd.auto_SpgClick1, false);
+      gwd.actions.events.addHandler('mpg', 'click', gwd.auto_MpgClick, false);
+      gwd.actions.events.addHandler('mpg', 'click', gwd.auto_MpgClick1, false);
+      gwd.actions.events.addHandler('spg', 'click', gwd.auto_SpgClick2, false);
+      gwd.actions.events.addHandler('spg', 'click', gwd.auto_SpgClick3, false);
+      gwd.actions.events.addHandler('mpg', 'click', gwd.auto_MpgClick2, false);
+      gwd.actions.events.addHandler('mpg', 'click', gwd.auto_MpgClick3, false);
+      gwd.actions.events.addHandler('mpg', 'click', gwd.auto_MpgClick4, false);
+      gwd.actions.events.addHandler('mpg', 'click', gwd.auto_MpgClick5, false);
+      gwd.actions.events.addHandler('mpg', 'click', gwd.auto_MpgClick6, false);
+      gwd.actions.events.addHandler('mcl', 'click', gwd.auto_MclClick4, false);
+      gwd.actions.events.addHandler('mcl', 'click', gwd.auto_MclClick5, false);
+      gwd.actions.events.addHandler('mcl', 'click', gwd.auto_MclClick6, false);
+      gwd.actions.events.addHandler('mcl', 'click', gwd.auto_MclClick7, false);
+      gwd.actions.events.addHandler('mcl', 'click', gwd.auto_MclClick8, false);
+      gwd.actions.events.addHandler('pb', 'click', gwd.auto_PbClick11, false);
+      gwd.actions.events.addHandler('pb', 'click', gwd.auto_PbClick12, false);
+      gwd.actions.events.addHandler('mcl', 'click', gwd.auto_MclClick9, false);
+      gwd.actions.events.addHandler('pb', 'click', gwd.auto_PbClick13, false);
+      gwd.actions.events.addHandler('spg', 'click', gwd.auto_SpgClick4, false);
+      gwd.actions.events.addHandler('pb', 'click', gwd.auto_PbClick14, false);
+    };
+    gwd.actions.events.deregisterEventHandlers = function(event) {
+      gwd.actions.events.removeHandler('cl', 'click', gwd.auto_ClClick, false);
+      gwd.actions.events.removeHandler('cl', 'click', gwd.auto_ClClick1, false);
+      gwd.actions.events.removeHandler('cl', 'click', gwd.auto_ClClick2, false);
+      gwd.actions.events.removeHandler('cl', 'click', gwd.auto_ClClick3, false);
+      gwd.actions.events.removeHandler('cl', 'click', gwd.auto_ClClick4, false);
+      gwd.actions.events.removeHandler('cl', 'click', gwd.auto_ClClick5, false);
+      gwd.actions.events.removeHandler('cl', 'click', gwd.auto_ClClick6, false);
+      gwd.actions.events.removeHandler('cl', 'click', gwd.auto_ClClick7, false);
+      gwd.actions.events.removeHandler('b5', 'click', gwd.auto_B5Click, false);
+      gwd.actions.events.removeHandler('b4', 'click', gwd.auto_B4Click, false);
+      gwd.actions.events.removeHandler('b3', 'click', gwd.auto_B3Click, false);
+      gwd.actions.events.removeHandler('b2', 'click', gwd.auto_B2Click, false);
+      gwd.actions.events.removeHandler('b1', 'click', gwd.auto_B1Click, false);
+      gwd.actions.events.removeHandler('b5', 'click', gwd.auto_B5Click1, false);
+      gwd.actions.events.removeHandler('b4', 'click', gwd.auto_B4Click1, false);
+      gwd.actions.events.removeHandler('b3', 'click', gwd.auto_B3Click1, false);
+      gwd.actions.events.removeHandler('b2', 'click', gwd.auto_B2Click1, false);
+      gwd.actions.events.removeHandler('b1', 'click', gwd.auto_B1Click1, false);
+      gwd.actions.events.removeHandler('b1', 'click', gwd.auto_B1Click2, false);
+      gwd.actions.events.removeHandler('b2', 'click', gwd.auto_B2Click2, false);
+      gwd.actions.events.removeHandler('b3', 'click', gwd.auto_B3Click2, false);
+      gwd.actions.events.removeHandler('b4', 'click', gwd.auto_B4Click2, false);
+      gwd.actions.events.removeHandler('b5', 'click', gwd.auto_B5Click2, false);
+      gwd.actions.events.removeHandler('b5', 'click', gwd.auto_B5Click3, false);
+      gwd.actions.events.removeHandler('b4', 'click', gwd.auto_B4Click3, false);
+      gwd.actions.events.removeHandler('b3', 'click', gwd.auto_B3Click3, false);
+      gwd.actions.events.removeHandler('b2', 'click', gwd.auto_B2Click3, false);
+      gwd.actions.events.removeHandler('b1', 'click', gwd.auto_B1Click3, false);
+      gwd.actions.events.removeHandler('b1', 'click', gwd.auto_B1Click4, false);
+      gwd.actions.events.removeHandler('b2', 'click', gwd.auto_B2Click4, false);
+      gwd.actions.events.removeHandler('b3', 'click', gwd.auto_B3Click4, false);
+      gwd.actions.events.removeHandler('b4', 'click', gwd.auto_B4Click4, false);
+      gwd.actions.events.removeHandler('b5', 'click', gwd.auto_B5Click4, false);
+      gwd.actions.events.removeHandler('b5', 'click', gwd.auto_B5Click5, false);
+      gwd.actions.events.removeHandler('b4', 'click', gwd.auto_B4Click5, false);
+      gwd.actions.events.removeHandler('b3', 'click', gwd.auto_B3Click5, false);
+      gwd.actions.events.removeHandler('b2', 'click', gwd.auto_B2Click5, false);
+      gwd.actions.events.removeHandler('b1', 'click', gwd.auto_B1Click5, false);
+      gwd.actions.events.removeHandler('b1', 'click', gwd.auto_B1Click6, false);
+      gwd.actions.events.removeHandler('b2', 'click', gwd.auto_B2Click6, false);
+      gwd.actions.events.removeHandler('b3', 'click', gwd.auto_B3Click6, false);
+      gwd.actions.events.removeHandler('b4', 'click', gwd.auto_B4Click6, false);
+      gwd.actions.events.removeHandler('b5', 'click', gwd.auto_B5Click6, false);
+      gwd.actions.events.removeHandler('b1', 'click', gwd.auto_B1Click7, false);
+      gwd.actions.events.removeHandler('b2', 'click', gwd.auto_B2Click7, false);
+      gwd.actions.events.removeHandler('b3', 'click', gwd.auto_B3Click7, false);
+      gwd.actions.events.removeHandler('b4', 'click', gwd.auto_B4Click7, false);
+      gwd.actions.events.removeHandler('b5', 'click', gwd.auto_B5Click7, false);
+      gwd.actions.events.removeHandler('pb', 'click', gwd.auto_PbClick, false);
+      gwd.actions.events.removeHandler('pb', 'click', gwd.auto_PbClick1, false);
+      gwd.actions.events.removeHandler('pb', 'click', gwd.auto_PbClick2, false);
+      gwd.actions.events.removeHandler('pb', 'click', gwd.auto_PbClick3, false);
+      gwd.actions.events.removeHandler('pb', 'click', gwd.auto_PbClick4, false);
+      gwd.actions.events.removeHandler('pb', 'click', gwd.auto_PbClick6, false);
+      gwd.actions.events.removeHandler('pb', 'click', gwd.auto_PbClick7, false);
+      gwd.actions.events.removeHandler('hpt', 'click', gwd.auto_HtClick, false);
+      gwd.actions.events.removeHandler('hp', 'click', gwd.auto_HpClick, false);
+      gwd.actions.events.removeHandler('pb', 'click', gwd.auto_PbClick8, false);
+      gwd.actions.events.removeHandler('pb', 'click', gwd.auto_PbClick9, false);
+      gwd.actions.events.removeHandler('mcl', 'click', gwd.auto_MclClick, false);
+      gwd.actions.events.removeHandler('mcl', 'click', gwd.auto_MclClick1, false);
+      gwd.actions.events.removeHandler('mcl', 'click', gwd.auto_MclClick3, false);
+      gwd.actions.events.removeHandler('mcl', 'click', gwd.auto_MclClick2, false);
+      gwd.actions.events.removeHandler('pb', 'click', gwd.auto_PbClick5, false);
+      gwd.actions.events.removeHandler('pb', 'click', gwd.auto_PbClick10, false);
+      gwd.actions.events.removeHandler('spg', 'click', gwd.auto_SpgClick, false);
+      gwd.actions.events.removeHandler('spg', 'click', gwd.auto_SpgClick1, false);
+      gwd.actions.events.removeHandler('mpg', 'click', gwd.auto_MpgClick, false);
+      gwd.actions.events.removeHandler('mpg', 'click', gwd.auto_MpgClick1, false);
+      gwd.actions.events.removeHandler('spg', 'click', gwd.auto_SpgClick2, false);
+      gwd.actions.events.removeHandler('spg', 'click', gwd.auto_SpgClick3, false);
+      gwd.actions.events.removeHandler('mpg', 'click', gwd.auto_MpgClick2, false);
+      gwd.actions.events.removeHandler('mpg', 'click', gwd.auto_MpgClick3, false);
+      gwd.actions.events.removeHandler('mpg', 'click', gwd.auto_MpgClick4, false);
+      gwd.actions.events.removeHandler('mpg', 'click', gwd.auto_MpgClick5, false);
+      gwd.actions.events.removeHandler('mpg', 'click', gwd.auto_MpgClick6, false);
+      gwd.actions.events.removeHandler('mcl', 'click', gwd.auto_MclClick4, false);
+      gwd.actions.events.removeHandler('mcl', 'click', gwd.auto_MclClick5, false);
+      gwd.actions.events.removeHandler('mcl', 'click', gwd.auto_MclClick6, false);
+      gwd.actions.events.removeHandler('mcl', 'click', gwd.auto_MclClick7, false);
+      gwd.actions.events.removeHandler('mcl', 'click', gwd.auto_MclClick8, false);
+      gwd.actions.events.removeHandler('pb', 'click', gwd.auto_PbClick11, false);
+      gwd.actions.events.removeHandler('pb', 'click', gwd.auto_PbClick12, false);
+      gwd.actions.events.removeHandler('mcl', 'click', gwd.auto_MclClick9, false);
+      gwd.actions.events.removeHandler('pb', 'click', gwd.auto_PbClick13, false);
+      gwd.actions.events.removeHandler('spg', 'click', gwd.auto_SpgClick4, false);
+      gwd.actions.events.removeHandler('pb', 'click', gwd.auto_PbClick14, false);
+    };
+    document.addEventListener("DOMContentLoaded", gwd.actions.events.registerEventHandlers);
+    document.addEventListener("unload", gwd.actions.events.deregisterEventHandlers);
+  </script>
+</head>
+
+<body class="htmlNoPages">
+  <canvas class="gwd-canvas-11rh" id="render" width="100" height="100"></canvas>
+  <input type="range" id="zm" value="35" min="10" max="60" step="1" class="gwd-input-1z0k">
+  <p class="gwd-p-ul6c" id="bd" style="font-size: 3vw; backdrop-filter: blur(10px);"><span class="gwd-span-1115">Budget: 100</span><br></p>
+  <button class="gwd-button-ltx3" style="font-size: 2vw; backdrop-filter: blur(10px);" id="tl" onclick="tlact();btp.play()">Tile action</button>
+  <div class="gwd-div-1jju" style="backdrop-filter: blur(10px); display: none;" id="db"></div>
+  <p class="gwd-p-1ypy" style="font-size: 5vw; display: none;" id="t1">Build on tile (cost: 10):</p>
+  <button class="gwd-button-1rx2" id="b3" style="font-size: 4vw; display: none;" onclick="swmn('s')">School</button>
+  <button class="gwd-button-1ssc" style="font-size: 4vw; display: none;" id="b2" onclick="swmn('b')">House</button>
+  <button class="gwd-button-mc1z" style="font-size: 4vw; display: none;" id="b4" onclick="swmn('f')">Fabric</button>
+  <button class="gwd-button-k695" style="font-size: 4vw; display: none;" id="b5" onclick="swmn('r')">Road</button>
+  <button class="gwd-button-1i53" style="font-size: 4vw; display: none;" id="cl">close</button>
+  <button class="gwd-button-16zu" style="font-size: 4vw; display: none;" id="b1" onclick="swmn('ad')">adm</button>
+  <img src="assets/image.png" class="gwd-img-19wg" style="object-fit: cover;" id="bp">
+  <p class="gwd-p-14kk" style="font-size: 10vw; backdrop-filter: blur(10px);" id="ti">States</p>
+  <button class="gwd-button-jn3p" style="font-size: 3vw;" id="hp" onclick="document.getElementById('hpt').style.display = 'initial';btp.play()">How to play</button>
+  <button class="gwd-button-4v5l" style="font-size: 3vw;" id="spg" onclick="btp.play()">Singleplayer</button>
+  <button class="gwd-button-1rls" style="font-size: 3vw;" id="mpg" onclick="btp.play()">Multiplayer</button>
+  <p class="gwd-p-1yqn" style="backdrop-filter: blur(10px); font-size: 2vw; display: none;" id="hpt" onclick="btp.play()">How to play<br>"States" is a game centered around territorial acquisition, where your primary objective is to conquer all territories available. These territories fall into three categories: 'Yours,' 'Not Claimed' (which can be acquired freely), and 'Claimed by Others.' To capture the latter, your budget must exceed 50. Acquiring such territories necessitates the possession of a 'Ministry of Defence,' a prerequisite even for entering the territories of others. Boosting your budget demands a robust economy. This can be achieved by constructing houses to accommodate people, establishing factories for lower-skilled jobs, and founding schools for higher-skilled professions. Striking the right balance among these aspects will yield optimal economic growth. The establishment of schools mandates the existence of a 'Ministry of Education,' while both the 'Ministry of Education' and 'Ministry of Defence' necessitate the prior construction of a 'Parliament.' Additionally, the game features roads that persist even after being occupied.<br>How to play in multiplayer<br>You need a server app to be operational on a designated host. The application can be accessed through <a href="https://github.com/VitionVlad/StatesServer">this provided link</a>. You can run it within your local network or opt for a node.js hosting solution, which could be free or paid.</p>
+  <div class="gwd-div-c0sv" style="backdrop-filter: blur(10px); display: none;" id="mn"></div>
+  <button class="gwd-button-1l3d" style="font-size: 3vw; display: none;" id="mcl" onclick="btp.play()">Close</button>
+  <button class="gwd-button-1hew" style="font-size: 3vw; display: none;" id="pb" onclick="begsp();btp.play()">Play with a bot</button>
+  <button class="gwd-button-1ci3" style="font-size: 3vw; display: none;" id="con" onclick="conmp(0);btp.play()">Connect to a sever</button>
+  <button class="gwd-button-1x0t" style="font-size: 3vw; display: none;" id="cons" onclick="conmp(1);btp.play()">Connect to a sever (secured) </button>
+  <input type="text" id="cid" class="gwd-input-10m5 gwd-input-1k10" style="font-size: 3vw; display: none;" placeholder="Enter server local/public ip">
+  <input type="number" id="hm" value="5" min="1" max="10000" step="1" class="gwd-input-1xva" style="font-size: 3vw; display: none;" data-gwd-name="hm">
+  <input type="number" id="gid" value="0" min="0" max="4" step="1" class="gwd-input-y9wv" style="font-size: 3vw; display: none;"><span class="gwd-span-3xx7" style="font-size: 3vw; display: none;" id="itut">State id (leave 0 for automatic select)</span>
+  <script src="data/textures/back_texture"></script>
+  <script src="data/textures/bottom_texture"></script>
+  <script src="data/textures/front_texture"></script>
+  <script src="data/textures/left_texture"></script>
+  <script src="data/textures/right_texture"></script>
+  <script src="data/textures/top_texture"></script>
+  <script src="data/textures/m_texture"></script>
+  <script src="data/textures/n_texture"></script>
+  <script src="data/textures/s_texture"></script>
+  <script src="data/models/sus_model"></script>
+  <script src="data/models/plane_model"></script>
+  <script src="data/models/sky_model"></script>
+  <script src="data/models/b_model"></script>
+  <script src="data/models/c_model"></script>
+  <script src="data/models/d_model"></script>
+  <script src="data/models/e_model"></script>
+  <script src="data/models/f_model"></script>
+  <script src="data/models/g_model"></script>
+  <script src="data/models/p_model"></script>
+  <script src="data/models/s_model"></script>
+  <script src="data/models/r_model"></script>
+  <script src="data/models/pawn_model"></script>
+  <script src="Shadow.js"></script>
+  <p class="gwd-p-bbsz" style="backdrop-filter: blur(10px); font-size: 10vw; display: none;" id="we">Your device/browser does not support webgl2</p>
+  <script src="main.js"></script>
+  <span class="gwd-span-8jpl" style="display: none; font-size: 3vw;" id="snm">Enter the number of seconds for bot to action</span><span class="gwd-span-1yzw" id="ver">1.1r</span>
+</body>
+
+</html>

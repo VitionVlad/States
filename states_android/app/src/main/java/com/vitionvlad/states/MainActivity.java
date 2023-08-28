@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         webSettings.setJavaScriptEnabled(true);
         webSettings.setDomStorageEnabled(true);
         wv.getSettings().setPluginState(WebSettings.PluginState.ON);
+        wv.setWebViewClient(new WebViewClient());
+        wv.setWebChromeClient(new WebChromeClient());
         wv.loadUrl("file:///android_asset/index.html");
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override

@@ -509,8 +509,8 @@ function main(){
 
         touchpos = new vec2(x, y);
         if(stillt === true){
-            eng.pos.z -= (((touchpos.y/resolution.y)*2)-1)*0.05;
-            eng.pos.x -= (((touchpos.x/resolution.x)*2)-1)*0.1;
+            eng.pos.z -= (((touchpos.y/resolution.y)*2)-1)*0.15;
+            eng.pos.x -= (((touchpos.x/resolution.x)*2)-1)*0.15;
         }
 
         sky.Draw(eng);

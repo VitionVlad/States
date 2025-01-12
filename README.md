@@ -15,6 +15,6 @@ Our game does not use any third-party services that collect or process your data
 # Children’s Privacy
 Our game is designed for users of all ages. Since we do not collect any data, we comply with applicable privacy laws, including the Children’s Online Privacy Protection Act (COPPA).
 
-Contact Us
-If you have any questions about this Privacy Policy, please contact us at:
+Contact Us  
+If you have any questions about this Privacy Policy, please contact us at:  
 Email: vladvition@gmail.com

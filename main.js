@@ -367,7 +367,6 @@ function main(){
 
     var waitfb = 0;
 
-    var resolution = new vec2(eng.canvas.width, eng.canvas.height);
     var x, y;
     var stillt = false;
     var touchHandler = function(event) {
@@ -509,8 +508,8 @@ function main(){
 
         touchpos = new vec2(x, y);
         if(stillt === true){
-            eng.pos.z -= (((touchpos.y/resolution.y)*2)-1)*0.15;
-            eng.pos.x -= (((touchpos.x/resolution.x)*2)-1)*0.15;
+            eng.pos.z -= (((touchpos.y/eng.canvas.clientHeight)*2)-1)*0.15;
+            eng.pos.x -= (((touchpos.x/eng.canvas.clientWidth)*2)-1)*0.15;
         }
 
         sky.Draw(eng);

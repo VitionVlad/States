@@ -359,6 +359,7 @@ uniform mat4 mscale;
 out vec2 xy;
 out vec3 norm;
 out vec3 posit;
+out vec3 tang;
 void main(){
     vec4 fin = mscale * vec4(positions, 1.0);
     fin = mtrans * mroty * mrotx * mrotz * fin;
@@ -367,6 +368,7 @@ void main(){
     xy = uv;
     norm = normals;
     posit = positions;
+    tang = ntangent;
 }
 `;
 
